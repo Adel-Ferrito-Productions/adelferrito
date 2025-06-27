@@ -119,6 +119,148 @@ const galleries = {
     }
 };
 
+// Enhanced image metadata mapping for better ALT text and SEO
+const imageMetadata = {
+    'bw-malta': {
+        '3 bodies copy': {
+            title: 'Three Limestone Formations',
+            description: 'Three dramatic limestone rock formations emerging from the Mediterranean Sea, captured in stark black and white contrast',
+            location: 'Malta Coastline',
+            keywords: 'limestone formations, Mediterranean rocks, black and white photography, Malta coastline, dramatic landscape'
+        },
+        'Buskette Tree BW': {
+            title: 'Solitary Tree at Buskett',
+            description: 'A lone tree standing majestically in the Buskett Gardens, its branches reaching skyward against a dramatic monochrome sky',
+            location: 'Buskett Gardens, Malta',
+            keywords: 'Buskett Gardens, solitary tree, black and white nature, Malta landscape, dramatic sky'
+        },
+        'Comino Rock 1 copy': {
+            title: 'Comino Island Rock Formation',
+            description: 'Dramatic rock formations on the shores of Comino Island, showcasing the island\'s rugged natural beauty in monochrome',
+            location: 'Comino Island, Malta',
+            keywords: 'Comino Island, rock formations, Malta islands, black and white landscape, Mediterranean geology'
+        },
+        'lady Gebla tal general copy': {
+            title: 'Lady\'s Rock at General\'s Rock',
+            description: 'The iconic Lady\'s Rock formation near General\'s Rock, a natural landmark of Malta\'s dramatic coastal landscape',
+            location: 'General\'s Rock, Malta',
+            keywords: 'Lady\'s Rock, General\'s Rock, Malta landmarks, coastal formations, black and white photography'
+        },
+        'Lapsi BW Filfla copy': {
+            title: 'Lapsi View Towards Filfla',
+            description: 'Panoramic view from Lapsi looking towards the distant island of Filfla, captured in dramatic black and white tones',
+            location: 'Lapsi, Malta',
+            keywords: 'Lapsi Malta, Filfla island, panoramic view, black and white landscape, Mediterranean vista'
+        },
+        'Mellieha-Cave-2020': {
+            title: 'Mellieha Cave Interior',
+            description: 'The mysterious interior of a cave in Mellieha, where natural light creates dramatic shadows and textures',
+            location: 'Mellieha, Malta',
+            keywords: 'Mellieha cave, cave photography, natural light, dramatic shadows, Malta geology'
+        },
+        'Mistiuqe---Swieqi-Jan-12-2022-www': {
+            title: 'Mistique Building in Swieqi',
+            description: 'The distinctive Mistique building in Swieqi, captured in black and white to emphasize its architectural lines and form',
+            location: 'Swieqi, Malta',
+            keywords: 'Mistique building, Swieqi Malta, architectural photography, black and white, modern architecture'
+        },
+        'Munxar sunrise copy': {
+            title: 'Munxar Sunrise',
+            description: 'The first light of dawn breaking over Munxar, creating a serene and peaceful morning atmosphere in monochrome',
+            location: 'Munxar, Malta',
+            keywords: 'Munxar sunrise, dawn photography, morning light, black and white landscape, Malta countryside'
+        }
+    },
+    'bw-sicily': {
+        'Caltabellotta-BW-Mountain': {
+            title: 'Caltabellotta Mountain View',
+            description: 'Dramatic mountain landscape surrounding the medieval village of Caltabellotta, captured in stark black and white contrast',
+            location: 'Caltabellotta, Sicily',
+            keywords: 'Caltabellotta mountain, Sicilian landscape, black and white photography, medieval village, dramatic terrain'
+        },
+        'Carta-Bellotta-2April-26,-2024Adel-Ferrito-copy': {
+            title: 'Caltabellotta Street Scene',
+            description: 'A quiet street in Caltabellotta village, showcasing the medieval architecture and timeless atmosphere',
+            location: 'Caltabellotta, Sicily',
+            keywords: 'Caltabellotta streets, medieval architecture, Sicilian village, black and white, timeless atmosphere'
+        },
+        'Selinunte-1-May-04-Adel-Ferrito-2024-copy': {
+            title: 'Selinunte Temple Ruins',
+            description: 'Ancient Greek temple ruins at Selinunte archaeological site, standing majestically against the Mediterranean sky',
+            location: 'Selinunte Archaeological Park, Sicily',
+            keywords: 'Selinunte ruins, Greek temples, archaeological photography, ancient Sicily, Mediterranean heritage'
+        }
+    },
+    'storms': {
+        '2-Golden-Bay-October-Storm-2-copy': {
+            title: 'October Storm at Golden Bay',
+            description: 'Dramatic storm clouds gathering over Golden Bay during October, creating an intense and atmospheric scene',
+            location: 'Golden Bay, Malta',
+            keywords: 'storm photography, Golden Bay Malta, dramatic weather, October storm, atmospheric photography'
+        },
+        '2-Golden-Bay-October-Storm-Print-NOV2022-copy': {
+            title: 'Storm Over Golden Bay',
+            description: 'Powerful storm system moving across Golden Bay, captured in dramatic black and white to emphasize the storm\'s intensity',
+            location: 'Golden Bay, Malta',
+            keywords: 'storm photography, Golden Bay, dramatic weather, black and white storm, Malta weather'
+        }
+    },
+    'golden-hour': {
+        '01.06.2020--Sunset-Pano-Riviera-2024-edit': {
+            title: 'Sunset Panorama at Riviera',
+            description: 'Breathtaking sunset panorama over the Riviera coastline, with golden light painting the Mediterranean waters',
+            location: 'Riviera, Malta',
+            keywords: 'sunset photography, Riviera Malta, golden hour, Mediterranean sunset, panoramic landscape'
+        }
+    },
+    'dramatic-architecture': {
+        'bench uppe barrakka copy': {
+            title: 'Bench at Upper Barrakka Gardens',
+            description: 'A solitary bench in the Upper Barrakka Gardens, overlooking the Grand Harbor with dramatic architectural backdrop',
+            location: 'Upper Barrakka Gardens, Valletta, Malta',
+            keywords: 'Upper Barrakka Gardens, Valletta architecture, Grand Harbor view, dramatic architecture, Malta landmarks'
+        }
+    },
+    'landscapes': {
+        'cartabellotta-Church-Wide-April-26,-2024Adel-Ferrito-copy': {
+            title: 'Caltabellotta Church Wide View',
+            description: 'Wide-angle view of the church in Caltabellotta village, showcasing the medieval architecture against the Sicilian landscape',
+            location: 'Caltabellotta, Sicily',
+            keywords: 'Caltabellotta church, Sicilian architecture, medieval church, wide-angle photography, village landscape'
+        }
+    },
+    'salinunte': {
+        'Selinunte-1-May-04-Adel-Ferrito-2024-copy': {
+            title: 'Selinunte Temple E',
+            description: 'Temple E at the Selinunte archaeological site, one of the best-preserved Greek temples in Sicily',
+            location: 'Selinunte Archaeological Park, Sicily',
+            keywords: 'Selinunte Temple E, Greek archaeology, Sicilian ruins, ancient temples, Mediterranean heritage'
+        },
+        'Selinunte-1-May-05-Adel-Ferrito-2024-copy': {
+            title: 'Selinunte Temple Complex',
+            description: 'The majestic temple complex at Selinunte, showcasing the grandeur of ancient Greek architecture in Sicily',
+            location: 'Selinunte Archaeological Park, Sicily',
+            keywords: 'Selinunte temples, Greek architecture, archaeological site, Sicilian heritage, ancient ruins'
+        }
+    },
+    'caltabellotta': {
+        'Caltabellotta-BW-Mountain': {
+            title: 'Caltabellotta Mountain Village',
+            description: 'The medieval village of Caltabellotta perched dramatically on the mountainside, captured in monochrome',
+            location: 'Caltabellotta, Sicily',
+            keywords: 'Caltabellotta village, medieval Sicily, mountain village, black and white photography, dramatic landscape'
+        }
+    },
+    'grotte': {
+        'Renato-May-01,-2024Adel-Ferrito-copy': {
+            title: 'Cave Interior - Natural Light',
+            description: 'The interior of a natural cave where sunlight creates dramatic light shafts and reveals the cave\'s hidden beauty',
+            location: 'Malta',
+            keywords: 'cave photography, natural light, cave interior, dramatic lighting, Malta geology'
+        }
+    }
+};
+
 // Load optimized image mapping
 let imageMapping = [];
 
@@ -163,6 +305,98 @@ function getOptimizedImageSources(originalImage, folder) {
     };
 }
 
+// Enhanced ALT text generation with SEO optimization
+function generateAltText(filename, gallery) {
+    const baseName = filename.replace(/\.[^/.]+$/, ''); // Remove extension
+    
+    // Check if we have specific metadata for this image
+    const galleryMetadata = imageMetadata[gallery.folder];
+    if (galleryMetadata && galleryMetadata[baseName]) {
+        const metadata = galleryMetadata[baseName];
+        return `${metadata.title} - ${metadata.description} - Fine art photography by Adel Ferrito. ${metadata.keywords}`;
+    }
+    
+    // Fallback: Generate from filename with context
+    const formattedName = baseName
+        .replace(/[-_]/g, ' ')
+        .replace(/\b\w/g, l => l.toUpperCase())
+        .replace(/Copy/g, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+    
+    // Add location context based on gallery
+    let location = '';
+    switch(gallery.folder) {
+        case 'bw-malta':
+            location = 'Malta';
+            break;
+        case 'bw-sicily':
+            location = 'Sicily';
+            break;
+        case 'storms':
+            location = 'Mediterranean';
+            break;
+        case 'golden-hour':
+            location = 'Mediterranean';
+            break;
+        case 'dramatic-architecture':
+            location = 'Malta & Sicily';
+            break;
+        case 'landscapes':
+            location = 'Mediterranean';
+            break;
+        case 'salinunte':
+            location = 'Selinunte, Sicily';
+            break;
+        case 'caltabellotta':
+            location = 'Caltabellotta, Sicily';
+            break;
+        case 'grotte':
+            location = 'Malta & Sicily';
+            break;
+        default:
+            location = 'Mediterranean';
+    }
+    
+    return `${formattedName} - ${gallery.title} - Fine art photography by Adel Ferrito. Location: ${location}. ${gallery.description}`;
+}
+
+// Enhanced image title generation
+function formatImageTitle(filename) {
+    const baseName = filename.replace(/\.[^/.]+$/, '');
+    
+    // Check for specific metadata first
+    for (const galleryKey in imageMetadata) {
+        const galleryMetadata = imageMetadata[galleryKey];
+        if (galleryMetadata[baseName]) {
+            return galleryMetadata[baseName].title;
+        }
+    }
+    
+    // Fallback: Generate from filename
+    return baseName
+        .replace(/[-_]/g, ' ')
+        .replace(/\b\w/g, l => l.toUpperCase())
+        .replace(/Copy/g, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+}
+
+// Generate SEO-optimized image description
+function generateImageDescription(filename, gallery) {
+    const baseName = filename.replace(/\.[^/.]+$/, '');
+    
+    // Check for specific metadata
+    const galleryMetadata = imageMetadata[gallery.folder];
+    if (galleryMetadata && galleryMetadata[baseName]) {
+        const metadata = galleryMetadata[baseName];
+        return `${metadata.description} - ${metadata.location} - Fine art photography by Adel Ferrito. Keywords: ${metadata.keywords}`;
+    }
+    
+    // Fallback description
+    return `${formatImageTitle(filename)} - ${gallery.description} - Fine art photography by Adel Ferrito. Location: ${gallery.location}`;
+}
+
 // Gallery functions
 function openGallery(galleryKey) {
     const gallery = galleries[galleryKey];
@@ -194,9 +428,9 @@ function openGallery(galleryKey) {
         imageElement.className = 'gallery-image';
         imageElement.setAttribute('tabindex', '0');
         imageElement.setAttribute('role', 'button');
-        imageElement.setAttribute('aria-label', `View ${image.original} in lightbox`);
+        imageElement.setAttribute('aria-label', `View ${formatImageTitle(image.original)} in lightbox`);
         
-        // Generate alt text from filename
+        // Generate enhanced alt text
         const altText = generateAltText(image.original, gallery);
         
         const optimizedSources = getOptimizedImageSources(image.original, gallery.folder);
@@ -208,7 +442,8 @@ function openGallery(galleryKey) {
                      srcset="${optimizedSources.srcset}"
                      sizes="${optimizedSources.sizes}"
                      alt="${altText}"
-                     loading="lazy">
+                     loading="lazy"
+                     title="${formatImageTitle(image.original)}">
             </picture>
             <div class="image-info">
                 <div class="image-title">${formatImageTitle(image.original)}</div>
@@ -264,6 +499,7 @@ function openLightbox(image, gallery, optimizedSources) {
     
     lightboxImage.src = lightboxSrc;
     lightboxImage.alt = generateAltText(image.original, gallery);
+    lightboxImage.title = formatImageTitle(image.original);
     lightbox.style.display = 'block';
     
     // Add lightbox actions
@@ -284,18 +520,6 @@ function openLightbox(image, gallery, optimizedSources) {
 
 function closeLightbox() {
     document.getElementById('lightbox').style.display = 'none';
-}
-
-// Utility functions
-function generateAltText(filename, gallery) {
-    const baseName = filename.replace(/\.[^/.]+$/, ''); // Remove extension
-    const formattedName = baseName.replace(/[-_]/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-    return `${formattedName} - ${gallery.title} - Fine art photography by Adel Ferrito`;
-}
-
-function formatImageTitle(filename) {
-    const baseName = filename.replace(/\.[^/.]+$/, '');
-    return baseName.replace(/[-_]/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 }
 
 // Professional features
