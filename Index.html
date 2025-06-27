@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adel Ferrito - Fine Art Photography</title>
+    <meta name="description" content="Fine art photography by Adel Ferrito. Storm photography, black and white landscapes, and architectural studies from Malta and Sicily. Gallery exhibitions and commissioned work available.">
+    <meta name="keywords" content="Adel Ferrito, fine art photography, storm photography, black and white photography, Malta photography, Sicily photography, Mediterranean landscapes, architectural photography, lightning photography">
+    <meta name="author" content="Adel Ferrito">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Adel Ferrito - Fine Art Photography">
+    <meta property="og:description" content="Storm photography and black & white landscapes from Malta and Sicily">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.adelferrito.com">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-black: #1a1a1a;
+            --soft-black: #2a2a2a;
+            --warm-white: #fefefe;
+            --cool-gray: #8a8a8a;
+            --light-gray: #f5f5f5;
+            --accent-gray: #e8e8e8;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--warm-white);
+            color: var(--primary-black);
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        ::selection {
+            background: var(--primary-black);
+            color: var(--warm-white);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(254, 254, 254, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 2rem 0;
+            transition: all 0.4s ease;
+            border-bottom: 1px solid var(--accent-gray);
+        }
+
+        .navbar.scrolled {
+            padding: 1.5rem 0;
+            background: rgba(254, 254, 254, 0.98);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .logo {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-black);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        .nav-menu a {
+            color: var(--primary-black);
+            text-decoration: none;
+            font-weight: 300;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--cool-gray);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--warm-white);
+            position: relative;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 600px;
+            padding: 0 3rem;
+        }
+
+        .hero h1 {
+            font-family: 'Crimson Text', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 400;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+            line-height: 1.1;
+        }
+
+        .hero .subtitle {
+            font-size: 1.1rem;
+            color: var(--cool-gray);
+            margin-bottom: 3rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--cool-gray);
+            font-size: 0.9rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        /* Sections */
+        .section {
+            padding: 6rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 4rem;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        /* Featured Work */
+        .featured-work {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8rem;
+            margin-bottom: 8rem;
+        }
+
+        .work-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .work-item:nth-child(even) {
+            direction: rtl;
+        }
+
+        .work-item:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .work-image {
+            width: 100%;
+            height: 60vh;
+            background: var(--light-gray);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .work-image:hover {
+            transform: scale(1.02);
+        }
+
+        .work-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.4s ease;
+        }
+
+        .work-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .placeholder-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--light-gray), var(--accent-gray));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: var(--cool-gray);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .work-info h3 {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .work-info p {
+            color: var(--cool-gray);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .work-link {
+            color: var(--primary-black);
+            text-decoration: none;
+            font-weight: 400;
+            border-bottom: 1px solid var(--primary-black);
+            padding-bottom: 2px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .work-link:hover {
+            color: var(--cool-gray);
+            border-color: var(--cool-gray);
+        }
+
+        /* Collections Grid */
+        .collections {
+            background: var(--light-gray);
+            padding: 8rem 0;
+            margin: 8rem 0;
+        }
+
+        .collections-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .collection-item {
+            background: var(--warm-white);
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .collection-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gray);
+            box-shadow: 0 15px 35px rgba(26, 26, 26, 0.1);
+        }
+
+        .collection-item h4 {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .collection-item p {
+            color: var(--cool-gray);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Gallery Modal */
+        .gallery-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            overflow-y: auto;
+        }
+
+        .gallery-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 8rem 3rem 4rem;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--warm-white);
+        }
+
+        .gallery-title {
+            font-family: 'Crimson Text', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .gallery-description {
+            color: #ccc;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .gallery-image {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-image:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 2rem 1rem 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-image:hover .image-info {
+            opacity: 1;
+        }
+
+        .image-title {
+            font-size: 0.9rem;
+            font-weight: 400;
+            margin-bottom: 0.25rem;
+        }
+
+        .image-details {
+            font-size: 0.8rem;
+            color: #ccc;
+        }
+
+        .close-gallery {
+            position: fixed;
+            top: 2rem;
+            right: 3rem;
+            color: var(--warm-white);
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 2001;
+            transition: color 0.3s ease;
+        }
+
+        .close-gallery:hover {
+            color: #ccc;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 3000;
+            cursor: pointer;
+        }
+
+        .lightbox-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90vw;
+            max-height: 90vh;
+        }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            z-index: 3001;
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            text-align: center;
+            padding: 8rem 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .philosophy-quote {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            line-height: 1.4;
+            margin-bottom: 3rem;
+            color: var(--primary-black);
+        }
+
+        .philosophy-text {
+            color: var(--cool-gray);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .philosophy-signature {
+            font-family: 'Crimson Text', serif;
+            font-style: italic;
+            color: var(--primary-black);
+            margin-top: 3rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--primary-black);
+            color: var(--warm-white);
+            padding: 8rem 3rem;
+            text-align: center;
+        }
+
+        .contact .section-title {
+            color: var(--warm-white);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-item {
+            padding: 2rem;
+        }
+
+        .contact-item h4 {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+
+        .contact-item p {
+            color: #b0b0b0;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-black);
+            color: #888;
+            text-align: center;
+            padding: 3rem;
+            font-size: 0.9rem;
+            border-top: 1px solid #333;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 2rem;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+
+            .section {
+                padding: 4rem 2rem;
+            }
+
+            .work-item {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .work-item:nth-child(even) {
+                direction: ltr;
+            }
+
+            .work-image {
+                height: 50vh;
+            }
+
+            .collections-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact {
+                padding: 6rem 2rem;
+            }
+
+            .philosophy {
+                padding: 6rem 2rem;
+            }
+
+            .philosophy-quote {
+                font-size: 1.4rem;
+            }
+
+            .gallery-content {
+                padding: 6rem 2rem 4rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .close-gallery {
+                right: 2rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Fade in animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">Adel Ferrito</a>
+            <ul class="nav-menu">
+                <li><a href="#work">Work</a></li>
+                <li><a href="#collections">Collections</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Adel Ferrito</h1>
+            <p class="subtitle">Fine Art Photography</p>
+        </div>
+        <div class="scroll-indicator">Scroll to explore</div>
+    </section>
+
+    <!-- Featured Work Section -->
+    <section id="work" class="section">
+        <h2 class="section-title">Selected Works</h2>
+        <div class="featured-work">
+            <div class="work-item fade-in">
+                <div class="work-image" onclick="openGallery('storms')">
+                    <img src="assets/images/featured/storm-hero.jpg" alt="Mediterranean storm with lightning over Malta coastline - dramatic weather photography by Adel Ferrito" loading="lazy">
+                </div>
+                <div class="work-info">
+                    <h3>Storm Studies</h3>
+                    <p>A series documenting the raw power and sublime beauty of Mediterranean thunderstorms. Each image captures the fleeting moment when nature displays its most dramatic moods—from the electrical dance of lightning to the sculptural forms of storm clouds.</p>
+                    <a href="#" class="work-link" onclick="openGallery('storms')">View Series</a>
+                </div>
+            </div>
+
+            <div class="work-item fade-in">
+                <div class="work-image" onclick="openGallery('malta-bw')">
+                    <img src="assets/images/featured/malta-bw-hero.jpg" alt="Black and white Malta landscape showing dramatic coastline - fine art photography by Adel Ferrito" loading="lazy">
+                </div>
+                <div class="work-info">
+                    <h3>Malta: Black & White</h3>
+                    <p>An intimate portrait of Malta rendered in timeless monochrome. These images explore the island's dramatic coastlines, ancient fortifications, and the interplay of light and shadow that defines its Mediterranean character.</p>
+                    <a href="#" class="work-link" onclick="openGallery('malta-bw')">View Series</a>
+                </div>
+            </div>
+
+            <div class="work-item fade-in">
+                <div class="work-image" onclick="openGallery('sicily-bw')">
+                    <img src="assets/images/featured/sicily-bw-hero.jpg" alt="Ancient Greek ruins at Selinunte Sicily in black and white - architectural photography by Adel Ferrito" loading="lazy">
+                </div>
+                <div class="work-info">
+                    <h3>Sicily: Echoes of Time</h3>
+                    <p>A meditation on Sicily's layered history, from the ancient Greek ruins of Selinunte to the medieval hilltop towns. These black and white studies capture the weight of centuries in stone and shadow.</p>
+                    <a href="#" class="work-link" onclick="openGallery('sicily-bw')">View Series</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections Section -->
+    <section id="collections" class="collections">
+        <div class="collections-inner">
+            <h2 class="section-title">Collections</h2>
+            <div class="collections-grid">
+                <div class="collection-item fade-in" onclick="openGallery('golden-hour')">
+                    <h4>Golden Hour</h4>
+                    <p>Sunrise and sunset studies capturing the transformative quality of Mediterranean light.</p>
+                </div>
+                <div class="collection-item fade-in" onclick="openGallery('architecture')">
+                    <h4>Architectural Studies</h4>
+                    <p>The dialogue between light, form, and space in both ancient and contemporary structures.</p>
+                </div>
+                <div class="collection-item fade-in" onclick="openGallery('landscapes')">
+                    <h4>Mediterranean Landscapes</h4>
+                    <p>The diverse terrains and coastal beauty of Malta and Sicily through an artistic lens.</p>
+                </div>
+                <div class="collection-item fade-in" onclick="openGallery('salinunte')">
+                    <h4>Selinunte</h4>
+                    <p>Ancient Greek ruins where history and landscape converge in timeless composition.</p>
+                </div>
+                <div class="collection-item fade-in" onclick="openGallery('caltabellotta')">
+                    <h4>Caltabellotta</h4>
+                    <p>A medieval Sicilian village perched between earth and sky, captured in monochrome poetry.</p>
+                </div>
+                <div class="collection-item fade-in" onclick="openGallery('caves')">
+                    <h4>Hidden Grottos</h4>
+                    <p>The secret chambers and coastal caves where light becomes sculpture.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section id="about" class="philosophy">
+        <h2 class="section-title">Philosophy</h2>
+        <p class="philosophy-quote">"Black and white photography erases time from the equation. To see in color is a delight for the eye, but to see in black and white is a delight for the soul."</p>
+        <p class="philosophy-text">In this vast tapestry we call life, where every lightning strike tells its tale and every shadow whispers secrets of the cosmos, my journey in photography takes root. This vision shapes my unique lens on the world—peering into the heart of the dramatic, capturing the boundless in the fleeting, and unveiling the timeless in the momentary.</p>
+        <p class="philosophy-text">My photography doesn't seek to invent stories but to unearth them, to bear witness to the narratives embedded in the fabric of light and stone, storm and silence. Within the interplay of shadow and light, the true spirit of moments is revealed, refined to their essence.</p>
+        <p class="philosophy-signature">— Adel Ferrito, 2025</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <h4>Email</h4>
+                <p>ferritography@gmail.com</p>
+            </div>
+            <div class="contact-item">
+                <h4>Location</h4>
+                <p>Malta & Sicily</p>
+            </div>
+            <div class="contact-item">
+                <h4>Exhibitions & Commissions</h4>
+                <p>Available worldwide</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 Adel Ferrito. All rights reserved.</p>
+    </footer>
+
+    <!-- Gallery Modal -->
+    <div class="gallery-modal" id="galleryModal">
+        <div class="close-gallery" onclick="closeGallery()">&times;</div>
+        <div class="gallery-content">
+            <div class="gallery-header">
+                <h2 class="gallery-title" id="galleryTitle"></h2>
+                <p class="gallery-description" id="galleryDescription"></p>
+            </div>
+            <div class="gallery-grid" id="galleryGrid"></div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-close">&times;</div>
+        <div class="lightbox-content">
+            <img id="lightboxImage" src="" alt="">
+        </div>
+    </div>
+
+    <script>
+        // Gallery configurations with SEO-optimized content
+        const galleries = {
+            'storms': {
+                title: 'Storm Studies',
+                description: 'Mediterranean thunderstorms captured with dramatic intensity, showcasing the raw power and sublime beauty of nature\'s most spectacular displays.',
+                seoTitle: 'Storm Photography Malta Sicily - Lightning and Dramatic Weather',
+                folder: 'stroms',
+                images: [
+                    { file: 'malta-lightning-strike-01.jpg', title: 'Lightning Strike Malta', details: 'Valletta Harbor, 2024' },
+                    { file: 'sicily-thunderstorm-02.jpg', title: 'Sicilian Thunderstorm', details: 'Mount Etna Region, 2024' },
+                    { file: 'mediterranean-storm-clouds-03.jpg', title: 'Storm Clouds', details: 'Gozo Channel, 2024' },
+                    { file: 'dramatic-lightning-bolts-04.jpg', title: 'Electric Storm', details: 'Malta Coastline, 2024' },
+                    { file: 'storm-over-valletta-05.jpg', title: 'Storm Over Valletta', details: 'Grand Harbor, 2024' },
+                    { file: 'lightning-mediterranean-06.jpg', title: 'Mediterranean Lightning', details: 'Open Waters, 2024' }
+                ]
+            },
+            'malta-bw': {
+                title: 'Malta: Black & White',
+                description: 'Timeless monochrome studies of Malta\'s dramatic landscapes, ancient architecture, and Mediterranean character rendered in fine art black and white.',
+                seoTitle: 'Malta Black and White Photography - Fine Art Monochrome Landscapes',
+                folder: 'bw-malta',
+                images: [
+                    { file: 'valletta-architecture-bw-01.jpg', title: 'Valletta Architecture', details: 'Upper Barrakka Gardens, 2024' },
+                    { file: 'malta-coastline-dramatic-02.jpg', title: 'Dramatic Coastline', details: 'Dingli Cliffs, 2024' },
+                    { file: 'mdina-medieval-streets-03.jpg', title: 'Mdina Streets', details: 'Silent City, 2024' },
+                    { file: 'golden-bay-monochrome-04.jpg', title: 'Golden Bay', details: 'Northwestern Coast, 2024' },
+                    { file: 'grand-harbor-bw-05.jpg', title: 'Grand Harbor', details: 'From Upper Barrakka, 2024' },
+                    { file: 'blue-grotto-shadows-06.jpg', title: 'Blue Grotto', details: 'Southern Malta, 2024' }
+                ]
+            },
+            'sicily-bw': {
+                title: 'Sicily: Echoes of Time',
+                description: 'A meditation on Sicily\'s layered history through black and white photography, from ancient Greek ruins to medieval hilltop villages.',
+                seoTitle: 'Sicily Black and White Photography - Ancient Ruins and Medieval Towns',
+                folder: 'bw-sicily',
+                images: [
+                    { file: 'selinunte-ruins-dramatic-01.jpg', title: 'Selinunte Temple', details: 'Ancient Greek Ruins, 2024' },
+                    { file: 'caltabellotta-hilltop-02.jpg', title: 'Caltabellotta Village', details: 'Medieval Hilltop, 2024' },
+                    { file: 'etna-landscape-bw-03.jpg', title: 'Mount Etna', details: 'Volcanic Landscape, 2024' },
+                    { file: 'taormina-ancient-theater-04.jpg', title: 'Taormina Theater', details: 'Greek-Roman Ruins, 2024' },
+                    { file: 'agrigento-valley-temples-05.jpg', title: 'Valley of Temples', details: 'Agrigento, 2024' },
+                    { file: 'sicilian-countryside-06.jpg', title: 'Sicilian Countryside', details: 'Central Sicily, 2024' }
+                ]
+            },
+            'golden-hour': {
+                title: 'Golden Hour',
+                description: 'The transformative quality of Mediterranean light during sunrise and sunset, capturing the poetry of changing illumination.',
+                seoTitle: 'Golden Hour Photography Malta Sicily - Sunrise and Sunset Fine Art',
+                folder: 'golden-hour',
+                images: [
+                    { file: 'malta-sunrise-golden-01.jpg', title: 'Malta Sunrise', details: 'St. Peter\'s Pool, 2024' },
+                    { file: 'sicily-sunset-dramatic-02.jpg', title: 'Sicilian Sunset', details: 'Western Coast, 2024' },
+                    { file: 'valletta-golden-light-03.jpg', title: 'Valletta Golden Hour', details: 'Fortifications, 2024' },
+                    { file: 'gozo-sunrise-cliffs-04.jpg', title: 'Gozo Sunrise', details: 'Ta\' Cenc Cliffs, 2024' },
+                    { file: 'mediterranean-sunset-05.jpg', title: 'Mediterranean Sunset', details: 'Open Waters, 2024' },
+                    { file: 'fisherman-golden-hour-06.jpg', title: 'Fisherman at Dawn', details: 'Marsaxlokk, 2024' }
+                ]
+            },
+            'architecture': {
+                title: 'Architectural Studies',
+                description: 'The dialogue between light, form, and space in Mediterranean architecture, from ancient temples to contemporary design.',
+                seoTitle: 'Architectural Photography Malta Sicily - Ancient and Modern Buildings',
+                folder: 'dramatic-architecture',
+                images: [
+                    { file: 'st-johns-cathedral-01.jpg', title: 'St. John\'s Cathedral', details: 'Valletta Interior, 2024' },
+                    { file: 'modern-architecture-malta-02.jpg', title: 'Contemporary Malta', details: 'Sliema Waterfront, 2024' },
+                    { file: 'palazzo-parisio-03.jpg', title: 'Palazzo Parisio', details: 'Naxxar, 2024' },
+                    { file: 'fortification-walls-04.jpg', title: 'Fortification Walls', details: 'Valletta Bastions, 2024' },
+                    { file: 'traditional-balconies-05.jpg', title: 'Traditional Balconies', details: 'Valletta Streets, 2024' },
+                    { file: 'church-dome-silhouette-06.jpg', title: 'Church Dome', details: 'Mosta Rotunda, 2024' }
+                ]
+            },
+            'landscapes': {
+                title: 'Mediterranean Landscapes',
+                description: 'The diverse terrains and coastal beauty of Malta and Sicily captured through an artistic lens, revealing hidden poetry in familiar places.',
+                seoTitle: 'Mediterranean Landscape Photography - Malta and Sicily Fine Art',
+                folder: 'landscapes',
+                images: [
+                    { file: 'mediterranean-coastline-01.jpg', title: 'Mediterranean Coast', details: 'Rocky Shoreline, 2024' },
+                    { file: 'malta-countryside-02.jpg', title: 'Maltese Countryside', details: 'Agricultural Terraces, 2024' },
+                    { file: 'sicily-rolling-hills-03.jpg', title: 'Sicilian Hills', details: 'Central Landscape, 2024' },
+                    { file: 'crystal-lagoon-04.jpg', title: 'Crystal Lagoon', details: 'Comino Blue Lagoon, 2024' },
+                    { file: 'volcanic-landscape-05.jpg', title: 'Volcanic Terrain', details: 'Mount Etna Slopes, 2024' },
+                    { file: 'fishing-village-06.jpg', title: 'Fishing Village', details: 'Marsaxlokk Harbor, 2024' }
+                ]
+            },
+            'salinunte': {
+                title: 'Selinunte',
+                description: 'Ancient Greek ruins where history and landscape converge in timeless composition, capturing the dialogue between past and present.',
+                seoTitle: 'Selinunte Archaeological Photography - Ancient Greek Ruins Sicily',
+                folder: 'salinunte',
+                images: [
+                    { file: 'temple-e-selinunte-01.jpg', title: 'Temple E', details: 'Eastern Hill, 2024' },
+                    { file: 'temple-columns-detail-02.jpg', title: 'Column Details', details: 'Doric Architecture, 2024' },
+                    { file: 'selinunte-overview-03.jpg', title: 'Archaeological Overview', details: 'Ancient City, 2024' },
+                    { file: 'temple-ruins-sunset-04.jpg', title: 'Ruins at Sunset', details: 'Golden Light, 2024' },
+                    { file: 'fallen-capitals-05.jpg', title: 'Fallen Capitals', details: 'Weathered Stone, 2024' },
+                    { file: 'selinunte-landscape-06.jpg', title: 'Sacred Landscape', details: 'Temple Complex, 2024' }
+                ]
+            },
+            'caltabellotta': {
+                title: 'Caltabellotta',
+                description: 'A medieval Sicilian village perched between earth and sky, captured in monochrome poetry that speaks of centuries and silence.',
+                seoTitle: 'Caltabellotta Photography - Medieval Sicilian Village Black and White',
+                folder: 'caltabellotta',
+                images: [
+                    { file: 'caltabellotta-village-01.jpg', title: 'Village Overview', details: 'Hilltop Settlement, 2024' },
+                    { file: 'medieval-streets-02.jpg', title: 'Medieval Streets', details: 'Stone Pathways, 2024' },
+                    { file: 'castle-ruins-03.jpg', title: 'Castle Ruins', details: 'Norman Fortress, 2024' },
+                    { file: 'church-bell-tower-04.jpg', title: 'Bell Tower', details: 'Chiesa Madre, 2024' },
+                    { file: 'valley-view-05.jpg', title: 'Valley Vista', details: 'Panoramic View, 2024' },
+                    { file: 'ancient-walls-06.jpg', title: 'Ancient Walls', details: 'Medieval Fortifications, 2024' }
+                ]
+            },
+            'caves': {
+                title: 'Hidden Grottos',
+                description: 'The secret chambers and coastal caves where light becomes sculpture, revealing nature\'s hidden architecture beneath the surface.',
+                seoTitle: 'Cave Photography Malta Sicily - Hidden Grottos and Coastal Caves',
+                folder: 'grotte',
+                images: [
+                    { file: 'blue-grotto-interior-01.jpg', title: 'Blue Grotto Interior', details: 'Natural Cave, 2024' },
+                    { file: 'coastal-cave-light-02.jpg', title: 'Cave Light Shaft', details: 'Limestone Formation, 2024' },
+                    { file: 'underwater-cave-03.jpg', title: 'Underwater Cave', details: 'Submerged Chamber, 2024' },
+                    { file: 'stalactite-formations-04.jpg', title: 'Stalactite Forms', details: 'Cave Ceiling, 2024' },
+                    { file: 'grotto-reflection-05.jpg', title: 'Grotto Reflection', details: 'Water Surface, 2024' },
+                    { file: 'cave-entrance-dramatic-06.jpg', title: 'Cave Entrance', details: 'Natural Arch, 2024' }
+                ]
+            }
+        };
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Gallery functions
+        function openGallery(galleryKey) {
+            const gallery = galleries[galleryKey];
+            if (!gallery) return;
+
+            // Update page title for SEO
+            document.title = `${gallery.seoTitle} - Adel Ferrito Photography`;
+            
+            // Update meta description
+            const metaDesc = document.querySelector('meta[name="description"]');
+            metaDesc.content = gallery.description;
+
+            // Populate gallery modal
+            document.getElementById('galleryTitle').textContent = gallery.title;
+            document.getElementById('galleryDescription').textContent = gallery.description;
+            
+            const galleryGrid = document.getElementById('galleryGrid');
+            galleryGrid.innerHTML = '';
+            
+            gallery.images.forEach((image, index) => {
+                const imageElement = document.createElement('div');
+                imageElement.className = 'gallery-image';
+                imageElement.onclick = () => openLightbox(`assets/images/${gallery.folder}/${image.file}`, `${image.title} - ${image.details} - Fine art photography by Adel Ferrito`);
+                
+                imageElement.innerHTML = `
+                    <img src="assets/images/${gallery.folder}/${image.file}" 
+                         alt="${image.title} - ${image.details} - ${gallery.seoTitle} by Adel Ferrito"
+                         loading="lazy">
+                    <div class="image-info">
+                        <div class="image-title">${image.title}</div>
+                        <div class="image-details">${image.details}</div>
+                    </div>
+                `;
+                
+                galleryGrid.appendChild(imageElement);
+            });
+            
+            document.getElementById('galleryModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGallery() {
+            document.getElementById('galleryModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            // Reset page title
+            document.title = 'Adel Ferrito - Fine Art Photography';
+            
+            // Reset meta description
+            const metaDesc = document.querySelector('meta[name="description"]');
+            metaDesc.content = 'Fine art photography by Adel Ferrito. Storm photography, black and white landscapes, and architectural studies from Malta and Sicily. Gallery exhibitions and commissioned work available.';
+        }
+
+        function openLightbox(imageSrc, imageAlt) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            
+            lightboxImage.src = imageSrc;
+            lightboxImage.alt = imageAlt;
+            lightbox.style.display = 'block';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        // Close modals with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeGallery();
+                closeLightbox();
+            }
+        });
+
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Preload featured images for better performance
+        window.addEventListener('load', function() {
+            const featuredImages = [
+                'assets/images/featured/storm-hero.jpg',
+                'assets/images/featured/malta-bw-hero.jpg',
+                'assets/images/featured/sicily-bw-hero.jpg'
+            ];
+            
+            featuredImages.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+        });
+    </script>
+</body>
+</html>
