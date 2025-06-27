@@ -1,0 +1,581 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-black: #1a1a1a;
+    --soft-black: #2a2a2a;
+    --warm-white: #fefefe;
+    --cool-gray: #8a8a8a;
+    --light-gray: #f5f5f5;
+    --accent-gray: #e8e8e8;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--warm-white);
+    color: var(--primary-black);
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+::selection {
+    background: var(--primary-black);
+    color: var(--warm-white);
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(254, 254, 254, 0.95);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    padding: 2rem 0;
+    transition: all 0.4s ease;
+    border-bottom: 1px solid var(--accent-gray);
+}
+
+.navbar.scrolled {
+    padding: 1.5rem 0;
+    background: rgba(254, 254, 254, 0.98);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 3rem;
+}
+
+.logo {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-black);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+}
+
+.nav-menu a {
+    color: var(--primary-black);
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-menu a:hover {
+    color: var(--cool-gray);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--warm-white);
+    position: relative;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 600px;
+    padding: 0 3rem;
+}
+
+.hero h1 {
+    font-family: 'Crimson Text', serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 400;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+    line-height: 1.1;
+}
+
+.hero .subtitle {
+    font-size: 1.1rem;
+    color: var(--cool-gray);
+    margin-bottom: 3rem;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--cool-gray);
+    font-size: 0.9rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* Sections */
+.section {
+    padding: 6rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: 'Crimson Text', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 4rem;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+/* Featured Work */
+.featured-work {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8rem;
+    margin-bottom: 8rem;
+}
+
+.work-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.work-item:nth-child(even) {
+    direction: rtl;
+}
+
+.work-item:nth-child(even) > * {
+    direction: ltr;
+}
+
+.work-image {
+    width: 100%;
+    height: 60vh;
+    background: var(--light-gray);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.work-image:hover {
+    transform: scale(1.02);
+}
+
+.work-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.4s ease;
+}
+
+.work-image:hover img {
+    transform: scale(1.05);
+}
+
+.placeholder-image {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--light-gray), var(--accent-gray));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: var(--cool-gray);
+    text-align: center;
+    padding: 2rem;
+}
+
+.work-info h3 {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.work-info p {
+    color: var(--cool-gray);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.work-link {
+    color: var(--primary-black);
+    text-decoration: none;
+    font-weight: 400;
+    border-bottom: 1px solid var(--primary-black);
+    padding-bottom: 2px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.work-link:hover {
+    color: var(--cool-gray);
+    border-color: var(--cool-gray);
+}
+
+/* Collections Grid */
+.collections {
+    background: var(--light-gray);
+    padding: 8rem 0;
+    margin: 8rem 0;
+}
+
+.collections-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 3rem;
+}
+
+.collections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.collection-item {
+    background: var(--warm-white);
+    padding: 3rem 2rem;
+    text-align: center;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.collection-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-gray);
+    box-shadow: 0 15px 35px rgba(26, 26, 26, 0.1);
+}
+
+.collection-item h4 {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.collection-item p {
+    color: var(--cool-gray);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Gallery Modal */
+.gallery-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 2000;
+    overflow-y: auto;
+}
+
+.gallery-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 8rem 3rem 4rem;
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    color: var(--warm-white);
+}
+
+.gallery-title {
+    font-family: 'Crimson Text', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.gallery-description {
+    color: #ccc;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.gallery-image {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-image:hover {
+    transform: scale(1.02);
+}
+
+.gallery-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.image-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 2rem 1rem 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-image:hover .image-info {
+    opacity: 1;
+}
+
+.image-title {
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-bottom: 0.25rem;
+}
+
+.image-details {
+    font-size: 0.8rem;
+    color: #ccc;
+}
+
+.close-gallery {
+    position: fixed;
+    top: 2rem;
+    right: 3rem;
+    color: var(--warm-white);
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 2001;
+    transition: color 0.3s ease;
+}
+
+.close-gallery:hover {
+    color: #ccc;
+}
+
+/* Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 3000;
+    cursor: pointer;
+}
+
+.lightbox-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+.lightbox img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    z-index: 3001;
+}
+
+/* Philosophy Section */
+.philosophy {
+    text-align: center;
+    padding: 8rem 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.philosophy-quote {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.8rem;
+    font-style: italic;
+    line-height: 1.4;
+    margin-bottom: 3rem;
+    color: var(--primary-black);
+}
+
+.philosophy-text {
+    color: var(--cool-gray);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.philosophy-signature {
+    font-family: 'Crimson Text', serif;
+    font-style: italic;
+    color: var(--primary-black);
+    margin-top: 3rem;
+}
+
+/* Contact Section */
+.contact {
+    background: var(--primary-black);
+    color: var(--warm-white);
+    padding: 8rem 3rem;
+    text-align: center;
+}
+
+.contact .section-title {
+    color: var(--warm-white);
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-top: 4rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-item {
+    padding: 2rem;
+}
+
+.contact-item h4 {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+
+.contact-item p {
+    color: #b0b0b0;
+    font-size: 0.95rem;
+}
+
+/* Footer */
+.footer {
+    background: var(--primary-black);
+    color: #888;
+    text-align: center;
+    padding: 3rem;
+    font-size: 0.9rem;
+    border-top: 1px solid #333;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0 2rem;
+    }
+    
+    .nav-menu {
+        display: none;
+    }
+
+    .section {
+        padding: 4rem 2rem;
+    }
+
+    .work-item {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .work-item:nth-child(even) {
+        direction: ltr;
+    }
+
+    .work-image {
+        height: 50vh;
+    }
+
+    .collections-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact {
+        padding: 6rem 2rem;
+    }
+
+    .philosophy {
+        padding: 6rem 2rem;
+    }
+
+    .philosophy-quote {
+        font-size: 1.4rem;
+    }
+
+    .gallery-content {
+        padding: 6rem 2rem 4rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .close-gallery {
+        right: 2rem;
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Fade in animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+} 
