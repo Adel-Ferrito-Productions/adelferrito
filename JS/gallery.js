@@ -2,120 +2,93 @@
 const galleries = {
     'storms': {
         title: 'Storm Studies',
-        description: 'Mediterranean thunderstorms captured with dramatic intensity, showcasing the raw power and sublime beauty of nature\'s most spectacular displays.',
-        seoTitle: 'Storm Photography Malta Sicily - Lightning and Dramatic Weather',
+        description: 'Dramatic Mediterranean thunderstorms captured in their most powerful moments',
         folder: 'storms',
-        category: 'Nature',
-        year: '2024',
         location: 'Malta & Sicily',
-        featured: true,
-        exhibitions: ['Mediterranean Light Exhibition, Valletta 2024'],
-        prints: true,
-        commissions: true
+        year: '2019-2024',
+        prints: false,
+        commissions: true,
+        seoTitle: 'Storm Photography Collection - Adel Ferrito'
     },
-    'malta-bw': {
+    'bw-malta': {
         title: 'Malta: Black & White',
-        description: 'Timeless monochrome studies of Malta\'s dramatic landscapes, ancient architecture, and Mediterranean character rendered in fine art black and white.',
-        seoTitle: 'Malta Black and White Photography - Fine Art Monochrome Landscapes',
+        description: 'Timeless monochrome studies of Malta\'s dramatic landscapes and architecture',
         folder: 'bw-malta',
-        category: 'Architecture',
-        year: '2024',
         location: 'Malta',
-        featured: true,
-        exhibitions: ['Monochrome Malta, Sliema Gallery 2024'],
-        prints: true,
-        commissions: true
+        year: '2020-2024',
+        prints: false,
+        commissions: true,
+        seoTitle: 'Black & White Malta Photography - Adel Ferrito'
     },
-    'sicily-bw': {
+    'bw-sicily': {
         title: 'Sicily: Echoes of Time',
-        description: 'A meditation on Sicily\'s layered history through black and white photography, from ancient Greek ruins to medieval hilltop villages.',
-        seoTitle: 'Sicily Black and White Photography - Ancient Ruins and Medieval Towns',
+        description: 'Ancient ruins and medieval villages captured in stark black and white',
         folder: 'bw-sicily',
-        category: 'Architecture',
-        year: '2024',
         location: 'Sicily',
-        featured: true,
-        exhibitions: ['Ancient Echoes, Palermo Contemporary 2024'],
-        prints: true,
-        commissions: true
+        year: '2024',
+        prints: false,
+        commissions: true,
+        seoTitle: 'Black & White Sicily Photography - Adel Ferrito'
     },
     'golden-hour': {
         title: 'Golden Hour',
-        description: 'The transformative quality of Mediterranean light during sunrise and sunset, capturing the poetry of changing illumination.',
-        seoTitle: 'Golden Hour Photography Malta Sicily - Sunrise and Sunset Fine Art',
+        description: 'Sunrise and sunset studies capturing the transformative quality of Mediterranean light',
         folder: 'golden-hour',
-        category: 'Landscape',
-        year: '2024',
         location: 'Malta & Sicily',
-        featured: false,
-        exhibitions: [],
-        prints: true,
-        commissions: true
+        year: '2020-2024',
+        prints: false,
+        commissions: true,
+        seoTitle: 'Golden Hour Photography - Adel Ferrito'
     },
     'architecture': {
         title: 'Architectural Studies',
-        description: 'The dialogue between light, form, and space in Mediterranean architecture, from ancient temples to contemporary design.',
-        seoTitle: 'Architectural Photography Malta Sicily - Ancient and Modern Buildings',
+        description: 'The dialogue between light, form, and space in both ancient and contemporary structures',
         folder: 'dramatic-architecture',
-        category: 'Architecture',
-        year: '2024',
         location: 'Malta & Sicily',
-        featured: false,
-        exhibitions: ['Mediterranean Architecture, Valletta Design Week 2024'],
-        prints: true,
-        commissions: true
+        year: '2020-2024',
+        prints: false,
+        commissions: true,
+        seoTitle: 'Architectural Photography - Adel Ferrito'
     },
     'landscapes': {
         title: 'Mediterranean Landscapes',
-        description: 'The diverse terrains and coastal beauty of Malta and Sicily captured through an artistic lens, revealing hidden poetry in familiar places.',
-        seoTitle: 'Mediterranean Landscape Photography - Malta and Sicily Fine Art',
+        description: 'The diverse terrains and coastal beauty of Malta and Sicily through an artistic lens',
         folder: 'landscapes',
-        category: 'Landscape',
-        year: '2024',
         location: 'Malta & Sicily',
-        featured: false,
-        exhibitions: [],
-        prints: true,
-        commissions: true
+        year: '2020-2024',
+        prints: false,
+        commissions: true,
+        seoTitle: 'Mediterranean Landscape Photography - Adel Ferrito'
     },
     'salinunte': {
         title: 'Selinunte',
-        description: 'Ancient Greek ruins where history and landscape converge in timeless composition, capturing the dialogue between past and present.',
-        seoTitle: 'Selinunte Archaeological Photography - Ancient Greek Ruins Sicily',
+        description: 'Ancient Greek ruins where history and landscape converge in timeless composition',
         folder: 'salinunte',
-        category: 'Archaeology',
+        location: 'Selinunte, Sicily',
         year: '2024',
-        location: 'Sicily',
-        featured: false,
-        exhibitions: ['Archaeological Perspectives, Catania Museum 2024'],
-        prints: true,
-        commissions: true
+        prints: false,
+        commissions: true,
+        seoTitle: 'Selinunte Archaeological Photography - Adel Ferrito'
     },
     'caltabellotta': {
         title: 'Caltabellotta',
-        description: 'A medieval Sicilian village perched between earth and sky, captured in monochrome poetry that speaks of centuries and silence.',
-        seoTitle: 'Caltabellotta Photography - Medieval Sicilian Village Black and White',
+        description: 'A medieval Sicilian village perched between earth and sky, captured in monochrome poetry',
         folder: 'caltabellotta',
-        category: 'Architecture',
+        location: 'Caltabellotta, Sicily',
         year: '2024',
-        location: 'Sicily',
-        featured: false,
-        exhibitions: [],
-        prints: true,
-        commissions: true
+        prints: false,
+        commissions: true,
+        seoTitle: 'Caltabellotta Village Photography - Adel Ferrito'
     },
     'caves': {
         title: 'Hidden Grottos',
-        description: 'The secret chambers and coastal caves where light becomes sculpture, revealing nature\'s hidden architecture beneath the surface.',
-        seoTitle: 'Cave Photography Malta Sicily - Hidden Grottos and Coastal Caves',
+        description: 'The secret chambers and coastal caves where light becomes sculpture',
         folder: 'grotte',
-        category: 'Nature',
-        year: '2024',
         location: 'Malta & Sicily',
-        featured: false,
-        exhibitions: ['Natural Architecture, Gozo Contemporary 2024'],
-        prints: true,
-        commissions: true
+        year: '2024',
+        prints: false,
+        commissions: true,
+        seoTitle: 'Cave and Grotto Photography - Adel Ferrito'
     }
 };
 
@@ -192,17 +165,83 @@ const imageMetadata = {
         }
     },
     'storms': {
-        '2-Golden-Bay-October-Storm-2-copy': {
-            title: 'October Storm at Golden Bay',
-            description: 'Dramatic storm clouds gathering over Golden Bay during October, creating an intense and atmospheric scene',
-            location: 'Golden Bay, Malta',
-            keywords: 'storm photography, Golden Bay Malta, dramatic weather, October storm, atmospheric photography'
+        'Valletta 1 copy': {
+            title: 'Storm Over Valletta',
+            description: 'Dramatic storm clouds gathering over the historic city of Valletta, creating an intense atmospheric scene',
+            location: 'Valletta, Malta',
+            keywords: 'storm photography, Valletta Malta, dramatic weather, atmospheric photography, Mediterranean storms'
         },
-        '2-Golden-Bay-October-Storm-Print-NOV2022-copy': {
-            title: 'Storm Over Golden Bay',
-            description: 'Powerful storm system moving across Golden Bay, captured in dramatic black and white to emphasize the storm\'s intensity',
-            location: 'Golden Bay, Malta',
-            keywords: 'storm photography, Golden Bay, dramatic weather, black and white storm, Malta weather'
+        'Valletta 3 copy': {
+            title: 'Lightning Over Valletta',
+            description: 'Electric lightning illuminating the night sky over Valletta\'s historic fortifications',
+            location: 'Valletta, Malta',
+            keywords: 'lightning photography, Valletta Malta, dramatic weather, night photography, storm lightning'
+        },
+        'Valletta 5 copy': {
+            title: 'Storm Front Approaching Valletta',
+            description: 'A powerful storm front moving towards Valletta, captured in dramatic black and white',
+            location: 'Valletta, Malta',
+            keywords: 'storm front, Valletta Malta, dramatic weather, approaching storm, atmospheric photography'
+        },
+        'Thunder Tarxien copy': {
+            title: 'Thunderstorm at Tarxien',
+            description: 'Intense thunderstorm activity over Tarxien, with dramatic cloud formations and atmospheric lighting',
+            location: 'Tarxien, Malta',
+            keywords: 'thunderstorm, Tarxien Malta, dramatic weather, lightning photography, storm clouds'
+        },
+        'Zurrieq-Sep-2020-1st-strom-copy': {
+            title: 'First Storm of September 2020',
+            description: 'The inaugural storm of September 2020 over Zurrieq, marking the beginning of the storm season',
+            location: 'Zurrieq, Malta',
+            keywords: 'September storm, Zurrieq Malta, 2020 storms, dramatic weather, seasonal storms'
+        },
+        'September-2021-Church-Dingly-2-copy': {
+            title: 'Storm Over Dingli Church',
+            description: 'Dramatic storm clouds gathering over the historic church in Dingli, creating a powerful contrast',
+            location: 'Dingli, Malta',
+            keywords: 'storm photography, Dingli church, dramatic weather, church architecture, Malta storms'
+        },
+        'September 2019 mellieha 3 copy': {
+            title: 'Mellieha Storm September 2019',
+            description: 'Powerful storm system over Mellieha during September 2019, showcasing nature\'s dramatic force',
+            location: 'Mellieha, Malta',
+            keywords: 'Mellieha storm, September 2019, dramatic weather, storm photography, Malta weather'
+        },
+        'Road to nowhere storm mellieha sept 2019 copy': {
+            title: 'Storm on the Road to Nowhere',
+            description: 'A desolate road in Mellieha during a September 2019 storm, creating an atmospheric and moody scene',
+            location: 'Mellieha, Malta',
+            keywords: 'desolate road, Mellieha storm, atmospheric photography, moody weather, September 2019'
+        },
+        'Riviera-10.12.2022': {
+            title: 'December Storm at Riviera',
+            description: 'Winter storm over the Riviera coastline in December 2022, with dramatic waves and storm clouds',
+            location: 'Riviera, Malta',
+            keywords: 'December storm, Riviera Malta, winter weather, dramatic waves, 2022 storms'
+        },
+        'October-2021-Church-Dingly-copy': {
+            title: 'October Storm Over Dingli Church',
+            description: 'Autumn storm clouds gathering over the historic church in Dingli during October 2021',
+            location: 'Dingli, Malta',
+            keywords: 'October storm, Dingli church, autumn weather, dramatic clouds, 2021 storms'
+        },
+        'Mellieha 2nd Storm Sept 2019 5 copy': {
+            title: 'Second Storm of September 2019',
+            description: 'The second major storm to hit Mellieha in September 2019, captured in dramatic black and white',
+            location: 'Mellieha, Malta',
+            keywords: 'second storm, Mellieha Malta, September 2019, dramatic weather, storm sequence'
+        },
+        'Il Munqar 4 copy': {
+            title: 'Storm Over Il Munqar',
+            description: 'Dramatic storm clouds gathering over the Il Munqar area, creating an intense atmospheric scene',
+            location: 'Il Munqar, Malta',
+            keywords: 'Il Munqar storm, dramatic weather, atmospheric photography, Malta storms, cloud formations'
+        },
+        'Il Munqar 6 copy': {
+            title: 'Lightning at Il Munqar',
+            description: 'Electric lightning illuminating the night sky over Il Munqar during a powerful storm',
+            location: 'Il Munqar, Malta',
+            keywords: 'lightning photography, Il Munqar Malta, dramatic weather, night storm, electric atmosphere'
         }
     },
     'golden-hour': {
@@ -397,6 +436,17 @@ function generateImageDescription(filename, gallery) {
     return `${formatImageTitle(filename)} - ${gallery.description} - Fine art photography by Adel Ferrito. Location: ${gallery.location}`;
 }
 
+// Helper function to extract folder name from full path
+function extractFolderName(fullPath) {
+    // Extract the folder name from the full Windows path
+    const pathParts = fullPath.split('\\');
+    const imagesIndex = pathParts.findIndex(part => part === 'images');
+    if (imagesIndex !== -1 && imagesIndex + 1 < pathParts.length) {
+        return pathParts[imagesIndex + 1];
+    }
+    return null;
+}
+
 // Gallery functions
 function openGallery(galleryKey) {
     const gallery = galleries[galleryKey];
@@ -419,9 +469,10 @@ function openGallery(galleryKey) {
     galleryGrid.innerHTML = '';
     
     // Get images for this gallery from the mapping
-    const galleryImages = imageMapping.filter(img => 
-        img.folder.includes(gallery.folder)
-    );
+    const galleryImages = imageMapping.filter(img => {
+        const folderName = extractFolderName(img.folder);
+        return folderName === gallery.folder;
+    });
     
     galleryImages.forEach((image, index) => {
         const imageElement = document.createElement('div');
@@ -449,7 +500,6 @@ function openGallery(galleryKey) {
                 <div class="image-title">${formatImageTitle(image.original)}</div>
                 <div class="image-details">${gallery.location}, ${gallery.year}</div>
                 <div class="image-actions">
-                    ${gallery.prints ? '<button class="btn-print" onclick="event.stopPropagation(); openPrintInquiry(\'' + image.original + '\', \'' + gallery.title + '\')">Buy Print</button>' : ''}
                     ${gallery.commissions ? '<button class="btn-commission" onclick="event.stopPropagation(); openCommissionInquiry(\'' + gallery.title + '\')">Commission</button>' : ''}
                 </div>
             </div>
@@ -463,6 +513,23 @@ function openGallery(galleryKey) {
                 openLightbox(image, gallery, optimizedSources);
             }
         });
+        
+        // Add loading and error handling
+        const img = imageElement.querySelector('img');
+        if (img) {
+            img.addEventListener('load', () => {
+                imageElement.classList.remove('loading');
+            });
+            
+            img.addEventListener('error', () => {
+                imageElement.classList.remove('loading');
+                imageElement.classList.add('error');
+                console.warn(`Failed to load image: ${image.original}`);
+            });
+            
+            // Add loading class initially
+            imageElement.classList.add('loading');
+        }
         
         galleryGrid.appendChild(imageElement);
     });
@@ -506,7 +573,6 @@ function openLightbox(image, gallery, optimizedSources) {
     const lightboxActions = document.createElement('div');
     lightboxActions.className = 'lightbox-actions';
     lightboxActions.innerHTML = `
-        ${gallery.prints ? '<button class="btn-print" onclick="openPrintInquiry(\'' + image.original + '\', \'' + gallery.title + '\')">Buy Print</button>' : ''}
         ${gallery.commissions ? '<button class="btn-commission" onclick="openCommissionInquiry(\'' + gallery.title + '\')">Commission</button>' : ''}
         <button class="btn-close" onclick="closeLightbox()">Close</button>
     `;
@@ -522,19 +588,18 @@ function closeLightbox() {
     document.getElementById('lightbox').style.display = 'none';
 }
 
-// Professional features
-function openPrintInquiry(imageName, galleryTitle) {
-    const subject = encodeURIComponent(`Print Inquiry: ${imageName} from ${galleryTitle}`);
-    const body = encodeURIComponent(`Hello Adel,\n\nI'm interested in purchasing a print of "${imageName}" from your "${galleryTitle}" series.\n\nPlease let me know about:\n- Available sizes and prices\n- Paper options\n- Shipping information\n- Timeline for delivery\n\nThank you,\n[Your name]`);
-    
-    window.open(`mailto:ferritography@gmail.com?subject=${subject}&body=${body}`, '_blank');
+// Commission inquiry function
+function openCommissionInquiry(series) {
+    const subject = encodeURIComponent(`Commission Inquiry: ${series}`);
+    const body = encodeURIComponent(`Hello Adel,\n\nI'm interested in commissioning photography work for the ${series} series.\n\nPlease provide information about:\n- Commission process\n- Timeline\n- Pricing\n- Requirements\n\nThank you,\n[Your Name]`);
+    window.open(`mailto:ferritography@gmail.com?subject=${subject}&body=${body}`);
 }
 
-function openCommissionInquiry(galleryTitle) {
-    const subject = encodeURIComponent(`Commission Inquiry: ${galleryTitle} Style`);
-    const body = encodeURIComponent(`Hello Adel,\n\nI'm interested in commissioning a piece in the style of your "${galleryTitle}" series.\n\nPlease let me know about:\n- Commission process and timeline\n- Pricing structure\n- Location requirements\n- Available formats and sizes\n\nThank you,\n[Your name]`);
-    
-    window.open(`mailto:ferritography@gmail.com?subject=${subject}&body=${body}`, '_blank');
+// Exhibition inquiry function
+function openExhibitionInquiry() {
+    const subject = encodeURIComponent('Exhibition Inquiry - Adel Ferrito Photography');
+    const body = encodeURIComponent(`Hello Adel,\n\nI'm interested in discussing exhibition opportunities for your fine art photography.\n\nPlease provide information about:\n- Available collections for exhibition\n- Exhibition requirements\n- Timeline and availability\n- Technical specifications\n\nThank you,\n[Your Name]`);
+    window.open(`mailto:ferritography@gmail.com?subject=${subject}&body=${body}`);
 }
 
 // Initialize gallery system

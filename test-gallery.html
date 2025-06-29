@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Test - Adel Ferrito</title>
+    <link rel="stylesheet" href="CSS/main.css">
+</head>
+<body>
+    <div class="test-container">
+        <h1>Gallery System Test</h1>
+        <p>Testing optimized images and gallery functionality</p>
+        
+        <h2>Featured Images Test</h2>
+        <div class="test-gallery">
+            <div class="test-item">
+                <h3>Storm Hero</h3>
+                <picture>
+                    <source srcset="Assets/images/featured/storm-hero_1200.webp" type="image/webp">
+                    <img src="Assets/images/featured/storm-hero_1200.jpg" alt="Storm hero image test">
+                </picture>
+            </div>
+            <div class="test-item">
+                <h3>Malta BW Hero</h3>
+                <picture>
+                    <source srcset="Assets/images/featured/malta-bw-hero_1200.webp" type="image/webp">
+                    <img src="Assets/images/featured/malta-bw-hero_1200.jpg" alt="Malta BW hero image test">
+                </picture>
+            </div>
+            <div class="test-item">
+                <h3>Sicily BW Hero</h3>
+                <picture>
+                    <source srcset="Assets/images/featured/sicily-bw-hero_1200.webp" type="image/webp">
+                    <img src="Assets/images/featured/sicily-bw-hero_1200.jpg" alt="Sicily BW hero image test">
+                </picture>
+            </div>
+        </div>
+        
+        <h2>Storm Gallery Test</h2>
+        <div class="test-gallery">
+            <div class="test-item">
+                <h3>Valletta Storm 1</h3>
+                <picture>
+                    <source srcset="Assets/images/storms/Valletta 1 copy_800.webp" type="image/webp">
+                    <img src="Assets/images/storms/Valletta 1 copy_800.jpg" alt="Valletta storm test">
+                </picture>
+            </div>
+            <div class="test-item">
+                <h3>Thunder Tarxien</h3>
+                <picture>
+                    <source srcset="Assets/images/storms/Thunder Tarxien copy_800.webp" type="image/webp">
+                    <img src="Assets/images/storms/Thunder Tarxien copy_800.jpg" alt="Thunder Tarxien test">
+                </picture>
+            </div>
+        </div>
+        
+        <h2>Gallery Buttons Test</h2>
+        <div class="test-buttons">
+            <button class="test-button" onclick="openGallery('storms')">Open Storms Gallery</button>
+            <button class="test-button" onclick="openGallery('bw-malta')">Open Malta BW Gallery</button>
+            <button class="test-button" onclick="openGallery('bw-sicily')">Open Sicily BW Gallery</button>
+            <button class="test-button" onclick="openCommissionInquiry('Test Series')">Test Commission Inquiry</button>
+            <button class="test-button" onclick="openExhibitionInquiry()">Test Exhibition Inquiry</button>
+        </div>
+    </div>
+
+    <!-- Gallery Modal -->
+    <div class="gallery-modal" id="galleryModal" role="dialog" aria-labelledby="galleryTitle" aria-describedby="galleryDescription">
+        <div class="close-gallery" onclick="closeGallery()" role="button" tabindex="0" aria-label="Close gallery">&times;</div>
+        <div class="gallery-content">
+            <div class="gallery-header">
+                <h2 class="gallery-title" id="galleryTitle"></h2>
+                <p class="gallery-description" id="galleryDescription"></p>
+            </div>
+            <div class="gallery-grid" id="galleryGrid" role="grid" aria-label="Gallery images"></div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()" role="dialog" aria-label="Image lightbox">
+        <div class="lightbox-close" onclick="closeLightbox()" role="button" tabindex="0" aria-label="Close lightbox">&times;</div>
+        <div class="lightbox-content">
+            <img id="lightboxImage" src="" alt="">
+        </div>
+    </div>
+
+    <script src="JS/gallery.js"></script>
+    <script src="JS/animations.js"></script>
+    <script src="JS/main.js"></script>
+</body>
+</html> 
