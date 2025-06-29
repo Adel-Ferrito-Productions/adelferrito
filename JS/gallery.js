@@ -30,6 +30,37 @@ const galleries = {
         commissions: true,
         seoTitle: 'Black & White Sicily Photography - Adel Ferrito'
     },
+    'gibellina-bw': {
+        title: 'Gibellina: Black & White',
+        description: 'The reconstructed city of Gibellina captured in dramatic monochrome',
+        folder: 'landscapes',
+        location: 'Gibellina, Sicily',
+        year: '2024',
+        prints: false,
+        commissions: true,
+        seoTitle: 'Gibellina Black & White Photography - Adel Ferrito',
+        filter: 'Gibellina' // Special filter for Gibellina images
+    },
+    'caltabellotta-giosamaria': {
+        title: 'Caltabellotta & Giosamaria',
+        description: 'Medieval Sicilian villages and landscapes in black and white',
+        folder: 'caltabellotta',
+        location: 'Caltabellotta & Giosamaria, Sicily',
+        year: '2024',
+        prints: false,
+        commissions: true,
+        seoTitle: 'Caltabellotta Giosamaria Photography - Adel Ferrito'
+    },
+    'architecture-malta-bw': {
+        title: 'Malta: Architectural Studies',
+        description: 'Black and white architectural studies of Malta\'s historic buildings and structures',
+        folder: 'dramatic-architecture',
+        location: 'Malta',
+        year: '2020-2024',
+        prints: false,
+        commissions: true,
+        seoTitle: 'Malta Architectural Photography - Adel Ferrito'
+    },
     'golden-hour': {
         title: 'Golden Hour',
         description: 'Sunrise and sunset studies capturing the transformative quality of Mediterranean light',
@@ -40,16 +71,6 @@ const galleries = {
         commissions: true,
         seoTitle: 'Golden Hour Photography - Adel Ferrito'
     },
-    'architecture': {
-        title: 'Architectural Studies',
-        description: 'The dialogue between light, form, and space in both ancient and contemporary structures',
-        folder: 'dramatic-architecture',
-        location: 'Malta & Sicily',
-        year: '2020-2024',
-        prints: false,
-        commissions: true,
-        seoTitle: 'Architectural Photography - Adel Ferrito'
-    },
     'landscapes': {
         title: 'Mediterranean Landscapes',
         description: 'The diverse terrains and coastal beauty of Malta and Sicily through an artistic lens',
@@ -58,7 +79,8 @@ const galleries = {
         year: '2020-2024',
         prints: false,
         commissions: true,
-        seoTitle: 'Mediterranean Landscape Photography - Adel Ferrito'
+        seoTitle: 'Mediterranean Landscape Photography - Adel Ferrito',
+        exclude: ['Gibellina', 'Gioiosa'] // Exclude these from main landscapes gallery
     },
     'salinunte': {
         title: 'Selinunte',
@@ -69,16 +91,6 @@ const galleries = {
         prints: false,
         commissions: true,
         seoTitle: 'Selinunte Archaeological Photography - Adel Ferrito'
-    },
-    'caltabellotta': {
-        title: 'Caltabellotta',
-        description: 'A medieval Sicilian village perched between earth and sky, captured in monochrome poetry',
-        folder: 'caltabellotta',
-        location: 'Caltabellotta, Sicily',
-        year: '2024',
-        prints: false,
-        commissions: true,
-        seoTitle: 'Caltabellotta Village Photography - Adel Ferrito'
     },
     'caves': {
         title: 'Hidden Grottos',
@@ -115,7 +127,7 @@ const imageMetadata = {
         },
         'lady Gebla tal general copy': {
             title: 'Lady\'s Rock at General\'s Rock',
-            description: 'The iconic Lady\'s Rock formation near General\'s Rock, a natural landmark of Malta\'s dramatic coastal landscape',
+            description: 'The iconic Lady\'s Rock formation near General\'s Rock, a natural landmark of Malta's dramatic coastal landscape',
             location: 'General\'s Rock, Malta',
             keywords: 'Lady\'s Rock, General\'s Rock, Malta landmarks, coastal formations, black and white photography'
         },
@@ -162,6 +174,44 @@ const imageMetadata = {
             description: 'Ancient Greek temple ruins at Selinunte archaeological site, standing majestically against the Mediterranean sky',
             location: 'Selinunte Archaeological Park, Sicily',
             keywords: 'Selinunte ruins, Greek temples, archaeological photography, ancient Sicily, Mediterranean heritage'
+        }
+    },
+    'landscapes': {
+        'Gibellina-10-DAY-3-April-30,-2024Adel-Ferrito-copy': {
+            title: 'Gibellina Reconstruction',
+            description: 'The reconstructed city of Gibellina showcasing modern architecture and urban planning in dramatic black and white',
+            location: 'Gibellina, Sicily',
+            keywords: 'Gibellina reconstruction, modern architecture, Sicilian city, black and white photography, urban landscape'
+        },
+        'Gibellina-11-DAY-3-April-30,-2024Adel-Ferrito-copy': {
+            title: 'Gibellina Urban Landscape',
+            description: 'Urban landscape of the reconstructed city of Gibellina captured in stark monochrome',
+            location: 'Gibellina, Sicily',
+            keywords: 'Gibellina urban, modern Sicilian city, black and white photography, reconstruction, urban planning'
+        },
+        'Gibellina-12-DAY-3-April-30,-2024Adel-Ferrito-copy': {
+            title: 'Gibellina Architecture',
+            description: 'Modern architectural elements of Gibellina city captured in dramatic black and white',
+            location: 'Gibellina, Sicily',
+            keywords: 'Gibellina architecture, modern buildings, Sicilian reconstruction, black and white, contemporary design'
+        },
+        'Day-1---Gioiosa-MareaJune-04,-2024-Adel-Ferrito-copy': {
+            title: 'Gioiosa Marea Coastline',
+            description: 'The dramatic coastline of Gioiosa Marea captured in black and white',
+            location: 'Gioiosa Marea, Sicily',
+            keywords: 'Gioiosa Marea, Sicilian coastline, black and white photography, Mediterranean coast, dramatic landscape'
+        },
+        'Day-1---Gioiosa-MareaJune-13,-2024-Adel-Ferrito-copy': {
+            title: 'Gioiosa Marea Village',
+            description: 'The charming village of Gioiosa Marea in dramatic monochrome',
+            location: 'Gioiosa Marea, Sicily',
+            keywords: 'Gioiosa Marea village, Sicilian town, black and white photography, Mediterranean village, traditional architecture'
+        },
+        'Day-1---Gioiosa-MareaJune-14,-2024-Adel-Ferrito-copy': {
+            title: 'Gioiosa Marea Landscape',
+            description: 'Landscape view of Gioiosa Marea showcasing the village and surrounding countryside',
+            location: 'Gioiosa Marea, Sicily',
+            keywords: 'Gioiosa Marea landscape, Sicilian countryside, black and white photography, village life, rural Sicily'
         }
     },
     'storms': {
@@ -471,7 +521,25 @@ function openGallery(galleryKey) {
     // Get images for this gallery from the mapping
     const galleryImages = imageMapping.filter(img => {
         const folderName = extractFolderName(img.folder);
-        return folderName === gallery.folder;
+        
+        // Check if folder matches
+        if (folderName !== gallery.folder) {
+            return false;
+        }
+        
+        // Apply special filters
+        if (gallery.filter) {
+            return img.original.includes(gallery.filter);
+        }
+        
+        // Apply exclusions
+        if (gallery.exclude) {
+            return !gallery.exclude.some(excludeTerm => 
+                img.original.includes(excludeTerm)
+            );
+        }
+        
+        return true;
     });
     
     galleryImages.forEach((image, index) => {
@@ -592,13 +660,6 @@ function closeLightbox() {
 function openCommissionInquiry(series) {
     const subject = encodeURIComponent(`Commission Inquiry: ${series}`);
     const body = encodeURIComponent(`Hello Adel,\n\nI'm interested in commissioning photography work for the ${series} series.\n\nPlease provide information about:\n- Commission process\n- Timeline\n- Pricing\n- Requirements\n\nThank you,\n[Your Name]`);
-    window.open(`mailto:ferritography@gmail.com?subject=${subject}&body=${body}`);
-}
-
-// Exhibition inquiry function
-function openExhibitionInquiry() {
-    const subject = encodeURIComponent('Exhibition Inquiry - Adel Ferrito Photography');
-    const body = encodeURIComponent(`Hello Adel,\n\nI'm interested in discussing exhibition opportunities for your fine art photography.\n\nPlease provide information about:\n- Available collections for exhibition\n- Exhibition requirements\n- Timeline and availability\n- Technical specifications\n\nThank you,\n[Your Name]`);
     window.open(`mailto:ferritography@gmail.com?subject=${subject}&body=${body}`);
 }
 
