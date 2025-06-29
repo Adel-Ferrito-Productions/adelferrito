@@ -420,43 +420,44 @@ body {
 
 .collections-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 3rem;
-    margin-top: 4rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
 }
 
 .collection-item {
     background: var(--warm-white);
-    padding: 2.5rem;
+    padding: 2rem;
     border-radius: var(--border-radius);
     cursor: pointer;
-    transition: all 0.4s ease;
-    border-left: 4px solid var(--primary-color);
+    transition: var(--transition);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .collection-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
 }
 
 .collection-item h4 {
     font-family: 'Crimson Text', serif;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 400;
     margin-bottom: 1rem;
     color: var(--primary-black);
+    letter-spacing: 0.5px;
 }
 
 .collection-item p {
     color: var(--cool-gray);
     line-height: 1.6;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .collection-actions {
     display: flex;
     gap: 1rem;
-    flex-wrap: wrap;
+    margin-top: 1rem;
 }
 
 /* Gallery Modal */
@@ -466,8 +467,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    z-index: 2000;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
     display: none;
     overflow-y: auto;
 }
@@ -476,15 +477,12 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     padding: 2rem;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    color: var(--warm-white);
 }
 
 .gallery-header {
     text-align: center;
     margin-bottom: 3rem;
-    color: var(--warm-white);
 }
 
 .gallery-title {
@@ -492,6 +490,7 @@ body {
     font-size: 2.5rem;
     font-weight: 400;
     margin-bottom: 1rem;
+    color: var(--warm-white);
     letter-spacing: 0.5px;
 }
 
@@ -507,16 +506,16 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
-    flex: 1;
 }
 
 .gallery-image {
     position: relative;
-    overflow: hidden;
+    background: var(--dark-gray);
     border-radius: var(--border-radius);
+    overflow: hidden;
     cursor: pointer;
-    transition: all 0.4s ease;
-    background: var(--light-gray);
+    transition: var(--transition);
+    aspect-ratio: 4/3;
 }
 
 .gallery-image:hover {
@@ -525,22 +524,21 @@ body {
 
 .gallery-image img {
     width: 100%;
-    height: 300px;
+    height: 100%;
     object-fit: cover;
-    transition: all 0.4s ease;
+    transition: var(--transition);
 }
 
 .gallery-image picture {
     width: 100%;
-    height: 300px;
-    display: block;
+    height: 100%;
 }
 
 .gallery-image picture img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: all 0.4s ease;
+    transition: var(--transition);
 }
 
 .image-info {
@@ -552,7 +550,7 @@ body {
     color: var(--warm-white);
     padding: 2rem 1.5rem 1.5rem;
     transform: translateY(100%);
-    transition: all 0.4s ease;
+    transition: var(--transition);
 }
 
 .gallery-image:hover .image-info {
@@ -564,46 +562,48 @@ body {
     font-size: 1.2rem;
     font-weight: 400;
     margin-bottom: 0.5rem;
+    letter-spacing: 0.5px;
 }
 
 .image-details {
     font-size: 0.9rem;
-    opacity: 0.8;
+    color: rgba(255, 255, 255, 0.8);
     margin-bottom: 1rem;
 }
 
 .image-actions {
     display: flex;
     gap: 0.5rem;
-    flex-wrap: wrap;
 }
 
 .image-actions .btn-print,
 .image-actions .btn-commission {
     padding: 0.5rem 1rem;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 
 .close-gallery {
-    position: absolute;
+    position: fixed;
     top: 2rem;
     right: 2rem;
-    background: none;
+    background: rgba(255, 255, 255, 0.1);
     border: none;
     color: var(--warm-white);
     font-size: 2rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
     width: 50px;
     height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
 }
 
 .close-gallery:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.2);
     transform: scale(1.1);
 }
 
@@ -615,57 +615,58 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.95);
-    z-index: 3000;
+    z-index: 2000;
     display: none;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 .lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
     position: relative;
-    max-width: 90vw;
-    max-height: 90vh;
 }
 
 .lightbox img {
     max-width: 100%;
-    max-height: 90vh;
+    max-height: 100%;
     object-fit: contain;
     border-radius: var(--border-radius);
 }
 
 .lightbox-close {
     position: absolute;
-    top: -50px;
-    right: 0;
-    background: none;
+    top: 2rem;
+    right: 2rem;
+    background: rgba(255, 255, 255, 0.1);
     border: none;
     color: var(--warm-white);
     font-size: 2rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
     width: 50px;
     height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
 }
 
 .lightbox-close:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.2);
     transform: scale(1.1);
 }
 
 .lightbox-actions {
     position: absolute;
-    bottom: -60px;
-    left: 0;
-    right: 0;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
 }
 
 /* Philosophy */
@@ -843,14 +844,6 @@ body {
     
     .contact {
         padding: 4rem 1.5rem;
-    }
-    
-    .philosophy {
-        padding: 4rem 1.5rem;
-    }
-    
-    .philosophy-quote {
-        font-size: 1.5rem;
     }
     
     .gallery-content {
@@ -1038,5 +1031,242 @@ html {
     .test-button {
         margin: 0;
         width: 100%;
+    }
+}
+
+/* About Section */
+.about {
+    padding: 8rem 0;
+    background: var(--warm-white);
+    position: relative;
+}
+
+.about-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 3rem;
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.about-subtitle {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--cool-gray);
+    margin-top: 1rem;
+    font-weight: 400;
+}
+
+.about-content {
+    position: relative;
+}
+
+.quote-block {
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.opening-quote {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.8rem;
+    font-style: italic;
+    color: var(--primary-black);
+    line-height: 1.4;
+    margin: 0;
+    padding: 2rem;
+    background: var(--light-gray);
+    border-radius: var(--border-radius);
+    position: relative;
+    border-left: 4px solid var(--primary-color);
+}
+
+.opening-quote::before {
+    content: '"';
+    font-size: 4rem;
+    color: var(--primary-color);
+    position: absolute;
+    top: -1rem;
+    left: 1rem;
+    font-family: 'Crimson Text', serif;
+    opacity: 0.3;
+}
+
+.opening-quote cite {
+    display: block;
+    font-size: 1rem;
+    font-style: normal;
+    color: var(--cool-gray);
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+.philosophy-quote {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--primary-color);
+    line-height: 1.4;
+    margin: 0;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, var(--light-gray) 0%, var(--accent-gray) 100%);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--accent-color);
+    position: relative;
+}
+
+.philosophy-quote::before {
+    content: '"';
+    font-size: 3rem;
+    color: var(--accent-color);
+    position: absolute;
+    top: -0.5rem;
+    left: 1rem;
+    font-family: 'Crimson Text', serif;
+    opacity: 0.4;
+}
+
+.about-text {
+    line-height: 1.8;
+}
+
+.about-paragraph {
+    font-size: 1.1rem;
+    color: var(--primary-black);
+    margin-bottom: 2rem;
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+}
+
+.about-paragraph:first-of-type {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--soft-black);
+}
+
+.about-signature {
+    text-align: right;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--accent-gray);
+}
+
+.signature-text {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--primary-black);
+    margin: 0;
+    font-weight: 600;
+}
+
+.signature-date {
+    font-size: 1rem;
+    color: var(--cool-gray);
+    margin: 0.5rem 0 0 0;
+    font-weight: 400;
+}
+
+/* Responsive Design for About Section */
+@media (max-width: 768px) {
+    .about {
+        padding: 6rem 0;
+    }
+    
+    .about-container {
+        padding: 0 2rem;
+    }
+    
+    .about-header {
+        margin-bottom: 3rem;
+    }
+    
+    .about-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .opening-quote {
+        font-size: 1.5rem;
+        padding: 1.5rem;
+    }
+    
+    .opening-quote::before {
+        font-size: 3rem;
+        top: -0.5rem;
+        left: 0.5rem;
+    }
+    
+    .philosophy-quote {
+        font-size: 1.3rem;
+        padding: 1rem 1.5rem;
+    }
+    
+    .philosophy-quote::before {
+        font-size: 2.5rem;
+        top: -0.3rem;
+        left: 0.5rem;
+    }
+    
+    .about-paragraph {
+        font-size: 1rem;
+        text-align: left;
+    }
+    
+    .about-paragraph:first-of-type {
+        font-size: 1.1rem;
+    }
+    
+    .about-signature {
+        margin-top: 3rem;
+        text-align: center;
+    }
+    
+    .signature-text {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about {
+        padding: 4rem 0;
+    }
+    
+    .about-container {
+        padding: 0 1.5rem;
+    }
+    
+    .opening-quote {
+        font-size: 1.3rem;
+        padding: 1rem;
+    }
+    
+    .opening-quote::before {
+        font-size: 2.5rem;
+        top: -0.3rem;
+        left: 0.3rem;
+    }
+    
+    .philosophy-quote {
+        font-size: 1.1rem;
+        padding: 0.8rem 1rem;
+    }
+    
+    .philosophy-quote::before {
+        font-size: 2rem;
+        top: -0.2rem;
+        left: 0.3rem;
+    }
+    
+    .about-paragraph {
+        font-size: 0.95rem;
+    }
+    
+    .about-paragraph:first-of-type {
+        font-size: 1rem;
     }
 } 
