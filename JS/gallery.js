@@ -381,10 +381,11 @@ function getOptimizedImageSources(originalImage, folder) {
     );
     
     if (!mapping) {
-        // Fallback to original image if mapping not found
+        // Fallback: Create a simple srcset with the original image
+        // This prevents the "unknown descriptor" error
         return {
-            srcset: `Assets/images/${folder}/${originalImage}`,
-            webpSrcset: `Assets/images/${folder}/${originalImage}`,
+            srcset: `Assets/images/${folder}/${originalImage} 1200w`,
+            webpSrcset: `Assets/images/${folder}/${originalImage.replace('.jpg', '.webp').replace('.jpeg', '.webp')} 1200w`,
             sizes: '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
         };
     }
