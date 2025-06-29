@@ -30,6 +30,16 @@ const galleries = {
         commissions: true,
         seoTitle: 'Black & White Sicily Photography - Adel Ferrito'
     },
+    'sicily-bw': {
+        title: 'Sicily: Echoes of Time',
+        description: 'Ancient ruins and medieval villages captured in stark black and white',
+        folder: 'bw-sicily',
+        location: 'Sicily',
+        year: '2024',
+        prints: false,
+        commissions: true,
+        seoTitle: 'Black & White Sicily Photography - Adel Ferrito'
+    },
     'gibellina-bw': {
         title: 'Gibellina: Black & White',
         description: 'The reconstructed city of Gibellina captured in dramatic monochrome',
@@ -127,7 +137,7 @@ const imageMetadata = {
         },
         'lady Gebla tal general copy': {
             title: 'Lady\'s Rock at General\'s Rock',
-            description: 'The iconic Lady\'s Rock formation near General\'s Rock, a natural landmark of Malta's dramatic coastal landscape',
+            description: 'The iconic Lady\'s Rock formation near General\'s Rock, a natural landmark of Malta\'s dramatic coastal landscape',
             location: 'General\'s Rock, Malta',
             keywords: 'Lady\'s Rock, General\'s Rock, Malta landmarks, coastal formations, black and white photography'
         },
