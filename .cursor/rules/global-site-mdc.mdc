@@ -1,0 +1,13 @@
+---
+alwaysApply: true
+---
+* Use **semantic HTML5** (`<header>`, `<nav>`, `<main>`, `<footer>`).
+* All styling via **Tailwind CSS** utility classes—no inline styles.
+* Images must use Astro’s `<Image>` component with `loading="lazy"` and proper `alt` text.  
+  - If the source file is large, request responsive `srcset`.
+* Ensure **WCAG AA** colour contrast; prefer `text-white/90` over pure white on dark photos.
+* JavaScript: vanilla or TypeScript modules only; no jQuery or un-needed frameworks.
+* Performance budget: **< 150 kB** total JS, **CLS < 0.1**, **LCP < 2.5 s** on 3G.
+
+@tailwind.config.cjs
+@src/styles/global.css

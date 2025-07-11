@@ -1,0 +1,9 @@
+---
+alwaysApply: true
+---
+* **Before** proposing edits, read `/docs/AI_LOG.md` (included below) to understand the project’s current state and recent changes.
+* **After** your edits are accepted, append a bullet to `/docs/AI_LOG.md` in this exact format:  
+  `- [YYYY-MM-DD HH:MM] <short summary of change> (files: <comma-separated paths>)`
+* If `/docs/AI_LOG.md` exceeds ~250 lines, create a new file `AI_LOG_YYYYQ<N>.md`, append there, and insert a link in the old file.
+* Do **not** remove or reorder existing log entries.
+@docs/AI_LOG.md

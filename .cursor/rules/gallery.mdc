@@ -1,0 +1,9 @@
+---
+description: Rules for responsive photo gallery components
+alwaysApply: false
+---
+* Use a **masonry grid**: two columns < 640 px, four ≥ 1024 px.
+* Lazy-load images with `IntersectionObserver` or Astro’s `client:load`.
+* Provide a low-res placeholder blurred via `@astrojs/image` `placeholder: "blur"`.
+* Clicking a photo opens a **full-viewport lightbox**—no external libs; use CSS fixed positioning.
+* Remember **tab-order**: ensure focus goes into the lightbox and returns to last thumbnail on close.
