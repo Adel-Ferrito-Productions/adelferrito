@@ -7,3 +7,8 @@ alwaysApply: false
 * Provide a low-res placeholder blurred via `@astrojs/image` `placeholder: "blur"`.
 * Clicking a photo opens a **full-viewport lightbox**—no external libs; use CSS fixed positioning.
 * Remember **tab-order**: ensure focus goes into the lightbox and returns to last thumbnail on close.
+colors: {
+  goldStart: '#ffcc66',
+  goldEnd:   '#ff8800',
+},
+

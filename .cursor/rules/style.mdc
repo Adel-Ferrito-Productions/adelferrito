@@ -1,0 +1,23 @@
+---
+description: Site-wide design language for Adel Ferrito portfolio
+alwaysApply: true
+---
+
+### Palette
+* Primary background: `#0d0d0d` (near-black).
+* Body text: `#f5f5f5`.
+* Accent gold gradient: **from** `#ffcc66` **to** `#ff8800` — matches logo stroke.
+
+### Typography
+* Headings: `"Playfair Display", serif`, weight 600.
+* Body: `"Inter", sans-serif`, weight 400.
+
+### Layout & Style
+* Visual mood = **minimal art-gallery**; generous whitespace, no drop-shadows.
+* All sections full-width; max-width 1280 px for inner content.
+* Use Tailwind utilities; never inline `style=""`.
+* Images: grayscale by default (`filter grayscale`), colour on hover (`filter-none`).
+* Hover highlights use the gold gradient on a 1 px underline or thin border—not full fills.
+* Logo file lives at `/assets/logo/logo.png` and should be lazily loaded.
+
+@tailwind.config.cjs
