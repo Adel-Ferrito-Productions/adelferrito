@@ -76,6 +76,10 @@ class LightningMonitor:
 
         # Previous storm cells for tracking
         self.previous_cells = None
+        
+        # Adaptive monitoring state
+        self.current_interval = None
+        self.is_active_storm = False
 
         logger.info("Lightning monitor initialized successfully")
 
@@ -272,6 +276,22 @@ class LightningMonitor:
             for alert in alerts:
                 await self._send_alert(alert)
 
+            # Adaptive monitoring: adjust interval based on activity
+            if self.adaptive_monitoring:
+                strikes_10min = lightning_analysis.get('strikes_10min', 0)
+                was_active_storm = self.is_active_storm
+                self.is_active_storm = strikes_10min > 5  # Active storm threshold
+                
+                # Adjust monitoring frequency during active storms
+                if self.is_active_storm and not was_active_storm:
+                    # Storm just became active - increase frequency
+                    logger.info(f"Active storm detected ({strikes_10min} strikes) - increasing monitoring frequency to {self.active_storm_interval}s")
+                    self._adjust_monitoring_interval(self.active_storm_interval)
+                elif not self.is_active_storm and was_active_storm:
+                    # Storm ended - return to normal frequency
+                    logger.info("Storm activity ended - returning to normal monitoring frequency")
+                    self._adjust_monitoring_interval(self.current_interval)
+
             logger.info("Monitoring cycle completed successfully")
 
         except Exception as e:
@@ -370,7 +390,13 @@ class LightningMonitor:
 
             # Get scheduler config
             scheduler_config = self.config.get('scheduler', {})
-            main_interval = scheduler_config.get('main_loop_interval', 60)
+            main_interval = scheduler_config.get('main_loop_interval', scheduler_config.get('monitoring_interval', 60))
+            active_storm_interval = scheduler_config.get('active_storm_interval', 30)
+            adaptive_monitoring = scheduler_config.get('adaptive_monitoring', True)
+            
+            self.current_interval = main_interval
+            self.active_storm_interval = active_storm_interval
+            self.adaptive_monitoring = adaptive_monitoring
 
             # Schedule main monitoring loop
             self.scheduler.add_job(
@@ -425,6 +451,16 @@ class LightningMonitor:
         except KeyboardInterrupt:
             logger.info("Received shutdown signal")
             self.stop()
+
+    def _adjust_monitoring_interval(self, new_interval: int):
+        """Dynamically adjust the monitoring interval."""
+        try:
+            job = self.scheduler.get_job('main_monitor')
+            if job:
+                job.modify(trigger='interval', seconds=new_interval)
+                logger.info(f"Monitoring interval adjusted to {new_interval} seconds")
+        except Exception as e:
+            logger.error(f"Error adjusting monitoring interval: {e}")
 
     async def _cleanup_database(self):
         """Clean up old database entries."""

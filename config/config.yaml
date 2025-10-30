@@ -108,7 +108,18 @@ logging:
 
 # Scheduler configuration
 scheduler:
-  monitoring_interval: 60  # seconds
+  # Main monitoring loop interval (seconds)
+  # Lower values = more frequent checks (better for active storms)
+  # Minimum recommended: 15-30 seconds (to avoid API rate limits)
+  # Recommended: 30 seconds for active storm monitoring
+  # Default: 60 seconds (normal conditions)
+  main_loop_interval: 30  # seconds (changed to 30 for faster response)
+  
+  # Adaptive monitoring: automatically increase frequency during active storms
+  # When enabled, system checks every 30s during storms, 60s normally
+  adaptive_monitoring: true
+  active_storm_interval: 15  # seconds (when > 5 strikes detected - very fast updates)
+  
   daily_summary_time: "08:00"  # UTC
   cleanup_time: "02:00"  # UTC
 
