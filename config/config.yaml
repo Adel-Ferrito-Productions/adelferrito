@@ -1,0 +1,130 @@
+# Malta Lightning Monitoring System Configuration
+
+# Geographic boundaries for Malta monitoring area
+location:
+  name: "Malta"
+  # Malta coordinates: 35.9375° N, 14.3754° E
+  center:
+    latitude: 35.9375
+    longitude: 14.3754
+  # Monitoring radius in kilometers
+  monitoring_radius_km: 100
+  # Bounding box for data fetching (extends beyond monitoring radius)
+  bbox:
+    min_lat: 35.0
+    max_lat: 37.0
+    min_lon: 13.0
+    max_lon: 15.5
+
+# Data source configurations
+data_sources:
+  blitzortung:
+    enabled: true
+    # Blitzortung API endpoint (community server)
+    base_url: "https://data.blitzortung.org"
+    # Fetch interval in seconds
+    fetch_interval: 60
+    # Historical data window in minutes
+    historical_window: 60
+
+  windy:
+    enabled: true
+    # Windy API requires key (set in .env)
+    base_url: "https://api.windy.com/api"
+    fetch_interval: 300  # 5 minutes
+    # Requested weather parameters (must be valid GFS model parameters)
+    # Valid GFS params: temp, dewpoint, precip, convPrecip, snowPrecip, wind, windGust,
+    # cape, ptype, lclouds, mclouds, hclouds, rh, gh, pressure
+    # Note: lifted_index not available in GFS - will be calculated from temp/dewpoint/pressure
+    parameters:
+      - "cape"           # Convective Available Potential Energy (most important for storms)
+      - "temp"           # Temperature (for calculating lifted index)
+      - "dewpoint"       # Dewpoint (for calculating lifted index)
+      - "pressure"      # Atmospheric pressure
+      - "wind"           # Wind speed and direction
+      - "convPrecip"     # Convective precipitation (indicator of thunderstorm activity)
+      - "lclouds"        # Low clouds
+      - "mclouds"        # Mid clouds
+      - "hclouds"        # High clouds
+
+  eumetsat:
+    enabled: false
+    # EUMETSAT data access (requires credentials)
+    base_url: "https://api.eumetsat.int"
+    fetch_interval: 600  # 10 minutes
+    products:
+      - "MSG-IR"
+      - "MSG-WV"
+
+# Processing configurations
+processing:
+  lightning:
+    min_strikes_for_storm: 15
+    cluster_radius_km: 30
+    density_grid_size_km: 5
+
+  atmospheric:
+    cape_threshold: 1000
+    lifted_index_threshold: -3
+
+# Alert configurations
+alerts:
+  levels:
+    info:
+      conditions:
+        - "strikes_10min > 5"
+      priority: 1
+
+    watch:
+      conditions:
+        - "strikes_10min > 15"
+        - "cape > 1000"
+      priority: 2
+
+    warning:
+      conditions:
+        - "strikes_10min > 30"
+        - "cape > 1500"
+      priority: 3
+
+    urgent:
+      conditions:
+        - "strikes_10min > 50"
+        - "cape > 2000"
+        - "strike_distance < 10"
+      priority: 4
+
+  notifications:
+    rate_limit:
+      max_per_hour: 10
+      suppress_duplicates_minutes: 15
+
+# Storage configuration
+storage:
+  database:
+    path: "lightning_monitor/data/cache/weather_data.db"
+    retention_days: 30
+
+# Logging configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "lightning_monitor/data/logs/monitor.log"
+
+# Scheduler configuration
+scheduler:
+  # Main monitoring loop interval (seconds)
+  # Lower values = more frequent checks (better for active storms)
+  # Minimum recommended: 15-30 seconds (to avoid API rate limits)
+  # Recommended: 30 seconds for active storm monitoring
+  # Default: 60 seconds (normal conditions)
+  main_loop_interval: 30  # seconds (changed to 30 for faster response)
+  
+  # Adaptive monitoring: automatically increase frequency during active storms
+  # When enabled, system checks every 30s during storms, 60s normally
+  adaptive_monitoring: true
+  active_storm_interval: 15  # seconds (when > 5 strikes detected - very fast updates)
+  
+  daily_summary_time: "08:00"  # UTC
+  cleanup_time: "02:00"  # UTC
+
