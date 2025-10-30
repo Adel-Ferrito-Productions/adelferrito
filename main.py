@@ -212,9 +212,10 @@ class LightningMonitor:
             weather_data = {}
             if self.windy:
                 center = self.config['location']['center']
+                # Use valid GFS parameters (lifted_index not available, will be calculated)
                 weather_data = self.windy.get_area_forecast(
                     bbox,
-                    parameters=['cape', 'lifted_index', 'temp', 'pressure', 'wind']
+                    parameters=['cape', 'temp', 'dewpoint', 'pressure', 'wind', 'convPrecip']
                 )
                 if weather_data:
                     self.db.store_weather_data('windy_forecast', weather_data)

@@ -50,8 +50,9 @@ class WindyClient:
             Dictionary with forecast data
         """
         try:
+            # Use provided parameters or default from config
             if parameters is None:
-                parameters = self.parameters
+                parameters = self.parameters or ['cape', 'temp', 'pressure']
 
             # Windy API v2 requires POST with JSON body
             url = f"{self.base_url}/point-forecast/v2"
