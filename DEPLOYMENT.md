@@ -25,11 +25,11 @@ cp .env.example .env
 
 ```env
 # Windy API Key
-WINDY_API_KEY=D7kCVowVLNdloXm0SOnru4MnCCygPVQZ
+WINDY_API_KEY=your_windy_api_key_here
 
 # Telegram Bot Configuration
-TELEGRAM_BOT_TOKEN=8372458796:AAEPl-mEKdPrjfbDiMppa3YqDjt8KZ2zX_k
-TELEGRAM_CHAT_ID=7621379285
+TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
+TELEGRAM_CHAT_ID=your_telegram_chat_id_here
 
 # Email Configuration (optional)
 EMAIL_SMTP_HOST=smtp.gmail.com

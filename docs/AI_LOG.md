@@ -285,4 +285,5 @@ sudo journalctl -u malta-lightning-monitor -f
 - [2025-01-27 12:30] All 33 tests passing - Coverage: ConfigLoader (93%), DataFusionEngine (82%), AlertRulesEngine (69%)
 - [2025-01-27 13:00] Created deployment documentation and configuration files (files: DEPLOYMENT.md, QUICK_START.md, .env.example, config/config.yaml)
 - [2025-10-30 23:41] Fixed AttributeError in LightningMonitor: initialized self.active_storm_interval, self.current_interval, and self.adaptive_monitoring in __init__ to prevent errors when fetch_and_process runs before start_async completes (files: main.py)
+- [2025-01-27 14:00] Security fix: Replaced exposed API keys and tokens with placeholders in documentation files (files: DEPLOYMENT.md, SETUP.md, QUICK_START.md, .env.example)
 
