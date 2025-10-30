@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  lightning-monitor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: malta-lightning-monitor
+    restart: unless-stopped
+
+    environment:
+      - TZ=Europe/Malta
+      - PYTHONUNBUFFERED=1
+
+    env_file:
+      - .env
+
+    volumes:
+      # Configuration
+      - ./config:/app/config:ro
+
+      # Data persistence
+      - lightning-data:/app/lightning_monitor/data
+
+      # Logs
+      - ./logs:/app/lightning_monitor/data/logs
+
+    networks:
+      - lightning-network
+
+    healthcheck:
+      test: ["CMD", "python", "-c", "import sys; sys.exit(0)"]
+      interval: 5m
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  lightning-data:
+    driver: local
+
+networks:
+  lightning-network:
+    driver: bridge

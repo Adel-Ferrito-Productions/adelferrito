@@ -1,0 +1,46 @@
+# Core dependencies
+python-dotenv==1.0.0
+pyyaml==6.0.1
+requests==2.31.0
+
+# Data processing
+pandas==2.1.4
+geopandas==0.14.1
+numpy==1.26.2
+shapely==2.0.2
+
+# Meteorological data processing
+metpy==1.5.1
+siphon==0.9.0
+eccodes==1.6.0
+cfgrib==0.9.10.4
+xarray==2023.12.0
+
+# Database
+sqlalchemy==2.0.23
+
+# Notifications
+python-telegram-bot==20.7
+pushover-complete==1.1.1
+
+# Scheduling
+schedule==1.2.0
+apscheduler==3.10.4
+
+# Visualization (optional)
+plotly==5.18.0
+matplotlib==3.8.2
+
+# Utilities
+pytz==2023.3.post1
+python-dateutil==2.8.2
+retry==0.9.2
+tenacity==8.2.3
+
+# Web framework (for optional dashboard)
+fastapi==0.108.0
+uvicorn==0.25.0
+
+# Testing
+pytest==7.4.3
+pytest-cov==4.1.0

@@ -1,0 +1,193 @@
+# Malta Lightning Monitoring System Configuration
+
+# Geographic boundaries for Malta monitoring area
+location:
+  name: "Malta"
+  # Malta coordinates: 35.9375° N, 14.3754° E
+  center:
+    latitude: 35.9375
+    longitude: 14.3754
+  # Monitoring radius in kilometers
+  monitoring_radius_km: 100
+  # Bounding box for data fetching (extends beyond monitoring radius)
+  bbox:
+    min_lat: 35.0
+    max_lat: 37.0
+    min_lon: 13.0
+    max_lon: 15.5
+
+# Data source configurations
+data_sources:
+  blitzortung:
+    enabled: true
+    # Blitzortung API endpoint (community server)
+    base_url: "https://data.blitzortung.org"
+    # Fetch interval in seconds
+    fetch_interval: 60
+    # Historical data window in minutes
+    historical_window: 60
+
+  windy:
+    enabled: true
+    # Windy API requires key (set in .env)
+    base_url: "https://api.windy.com/api"
+    fetch_interval: 300  # 5 minutes
+    # Requested weather parameters
+    parameters:
+      - "cape"
+      - "lifted_index"
+      - "pressure"
+      - "clouds"
+      - "temp"
+      - "wind"
+      - "thunder"
+
+  eumetsat:
+    enabled: false
+    # EUMETSAT data access (requires credentials)
+    base_url: "https://api.eumetsat.int"
+    fetch_interval: 600  # 10 minutes
+    products:
+      - "MSG-IR"
+      - "MSG-WV"
+
+  openweather:
+    enabled: true
+    base_url: "https://api.openweathermap.org/data/2.5"
+    fetch_interval: 300  # 5 minutes
+
+  malta_met_office:
+    enabled: false
+    # Local radar if available
+    base_url: "https://www.maltairport.com/weather"
+    fetch_interval: 600  # 10 minutes
+
+# Processing and analysis settings
+processing:
+  # Strike density analysis
+  lightning:
+    # Minimum strikes to trigger alert
+    min_strikes_for_alert: 15
+    # Time window for strike counting (minutes)
+    strike_window_minutes: 10
+    # Distance from center for strike counting (km)
+    alert_radius_km: 30
+    # Rate of change threshold (strikes/minute increase)
+    rate_change_threshold: 2.0
+
+  # Atmospheric instability thresholds
+  atmospheric:
+    # CAPE threshold (J/kg) - Convective Available Potential Energy
+    cape_threshold: 1000
+    # Lifted Index threshold (negative values indicate instability)
+    lifted_index_threshold: -3
+    # Cloud top height threshold (meters)
+    cloud_top_threshold: 12000
+
+  # Storm tracking
+  storm_tracking:
+    enabled: true
+    # Minimum consecutive detections to confirm storm
+    min_detections: 3
+    # Storm motion estimation window (minutes)
+    motion_window_minutes: 30
+    # Predict storm arrival based on motion vectors
+    predict_arrival: true
+
+# Alert rules configuration
+alerts:
+  # Alert severity levels
+  levels:
+    info:
+      conditions:
+        - "cape > 500"
+        - "lifted_index < -1"
+    watch:
+      conditions:
+        - "cape > 1000"
+        - "lifted_index < -3"
+        - "strikes_10min > 5"
+    warning:
+      conditions:
+        - "strikes_10min > 15"
+        - "strike_distance < 30"
+    urgent:
+      conditions:
+        - "strikes_10min > 30"
+        - "strike_distance < 15"
+        - "strike_rate_increasing"
+
+  # Notification channels
+  notifications:
+    telegram:
+      enabled: true
+      # Bot token and chat ID from .env
+      rate_limit:
+        max_per_hour: 10
+        suppress_duplicates_minutes: 15
+    email:
+      enabled: true
+      # Daily summary schedule (cron format)
+      daily_summary: "0 8 * * *"  # 8 AM daily
+      include_forecast: true
+    pushover:
+      enabled: false
+      priority:
+        info: -1
+        watch: 0
+        warning: 1
+        urgent: 2
+
+# Data storage and caching
+storage:
+  database:
+    type: "sqlite"
+    path: "lightning_monitor/data/cache/weather_data.db"
+    # Retention period for historical data (days)
+    retention_days: 30
+    # Automatic cleanup
+    auto_cleanup: true
+
+  cache:
+    # Redis cache (optional, falls back to in-memory)
+    enabled: false
+    ttl_seconds: 300
+
+# Logging configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "lightning_monitor/data/logs/monitor.log"
+  max_bytes: 10485760  # 10 MB
+  backup_count: 5
+  # Alert history logging
+  alert_log: "lightning_monitor/data/logs/alerts.log"
+
+# Scheduler settings
+scheduler:
+  # Main monitoring loop interval (seconds)
+  main_loop_interval: 60
+  # Health check interval (seconds)
+  health_check_interval: 300
+  # Timezone
+  timezone: "Europe/Malta"
+
+# Optional dashboard settings
+dashboard:
+  enabled: false
+  host: "0.0.0.0"
+  port: 8080
+  # Refresh interval for live data (seconds)
+  refresh_interval: 30
+  # Map tile server
+  map_tiles: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+
+# Testing and calibration
+testing:
+  # Silent mode - log alerts without sending notifications
+  silent_mode: false
+  # Inject test data
+  test_data_enabled: false
+  # Backfill historical data for calibration
+  backfill_enabled: false
+  backfill_days: 30
