@@ -53,18 +53,58 @@ class WindyClient:
             if parameters is None:
                 parameters = self.parameters
 
+            # Windy API v2 requires POST with JSON body
             url = f"{self.base_url}/point-forecast/v2"
-
+            
+            # Filter to only valid GFS model parameters
+            # Valid GFS parameters: temp, dewpoint, precip, convPrecip, snowPrecip, wind, windGust, 
+            # cape, ptype, lclouds, mclouds, hclouds, rh, gh, pressure
+            valid_gfs_params = ['temp', 'dewpoint', 'precip', 'convPrecip', 'snowPrecip', 'wind', 
+                               'windGust', 'cape', 'ptype', 'lclouds', 'mclouds', 'hclouds', 'rh', 'gh', 'pressure']
+            
+            if parameters:
+                # Filter and map to valid parameters
+                essential_params = []
+                for p in parameters:
+                    if p == 'lifted_index':
+                        # Lifted index not available in GFS, use temp/dewpoint/rh to calculate later
+                        essential_params.extend(['temp', 'dewpoint', 'pressure'])
+                    elif p == 'thunder':
+                        # Use convective precip and CAPE as proxy
+                        essential_params.extend(['cape', 'convPrecip'])
+                    elif p == 'clouds':
+                        essential_params.extend(['lclouds', 'mclouds', 'hclouds'])
+                    elif p in valid_gfs_params:
+                        essential_params.append(p)
+                
+                # Remove duplicates and ensure we have CAPE
+                essential_params = list(set(essential_params))
+                if 'cape' not in essential_params:
+                    essential_params.append('cape')
+                    
+                if not essential_params:
+                    essential_params = ['cape', 'temp', 'pressure']  # Default essential params
+            else:
+                essential_params = ['cape', 'temp', 'pressure']  # Default essential params
+            
+            # Build POST payload - levels must be an array
             payload = {
                 'lat': lat,
                 'lon': lon,
                 'model': 'gfs',  # Global Forecast System
-                'parameters': parameters,
-                'levels': ['surface', '850h', '700h', '500h'],
+                'parameters': essential_params,
+                'levels': ['surface'],  # Must be array, use surface level for most parameters
                 'key': self.api_key
             }
+            
+            headers = {
+                'Content-Type': 'application/json',
+                'User-Agent': 'Malta-Lightning-Monitor/1.0'
+            }
 
-            response = self.session.post(url, json=payload, timeout=30)
+            # Windy API requires POST request
+            response = self.session.post(url, json=payload, headers=headers, timeout=30)
+            
             response.raise_for_status()
 
             data = response.json()
@@ -72,6 +112,16 @@ class WindyClient:
 
             return self._parse_forecast(data)
 
+        except requests.exceptions.HTTPError as e:
+            if e.response.status_code == 400:
+                logger.error(f"Windy API Bad Request (400): Check API key and parameters. Response: {e.response.text[:200]}")
+            elif e.response.status_code == 401:
+                logger.error(f"Windy API Unauthorized (401): Invalid API key")
+            elif e.response.status_code == 403:
+                logger.error(f"Windy API Forbidden (403): API key lacks permissions")
+            else:
+                logger.error(f"Windy API HTTP Error {e.response.status_code}: {e}")
+            return {}
         except Exception as e:
             logger.error(f"Error fetching Windy point forecast: {e}")
             return {}

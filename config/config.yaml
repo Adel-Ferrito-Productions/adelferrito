@@ -32,15 +32,20 @@ data_sources:
     # Windy API requires key (set in .env)
     base_url: "https://api.windy.com/api"
     fetch_interval: 300  # 5 minutes
-    # Requested weather parameters
+    # Requested weather parameters (must be valid GFS model parameters)
+    # Valid GFS params: temp, dewpoint, precip, convPrecip, snowPrecip, wind, windGust,
+    # cape, ptype, lclouds, mclouds, hclouds, rh, gh, pressure
+    # Note: lifted_index not available in GFS - will be calculated from temp/dewpoint/pressure
     parameters:
-      - "cape"
-      - "lifted_index"
-      - "pressure"
-      - "clouds"
-      - "temp"
-      - "wind"
-      - "thunder"
+      - "cape"           # Convective Available Potential Energy (most important for storms)
+      - "temp"           # Temperature (for calculating lifted index)
+      - "dewpoint"       # Dewpoint (for calculating lifted index)
+      - "pressure"      # Atmospheric pressure
+      - "wind"           # Wind speed and direction
+      - "convPrecip"     # Convective precipitation (indicator of thunderstorm activity)
+      - "lclouds"        # Low clouds
+      - "mclouds"        # Mid clouds
+      - "hclouds"        # High clouds
 
   eumetsat:
     enabled: false
