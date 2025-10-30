@@ -363,8 +363,8 @@ class LightningMonitor:
 
         return recommendations.get(risk_level, 'Monitor weather conditions.')
 
-    def start(self):
-        """Start the monitoring system."""
+    async def start_async(self):
+        """Start the monitoring system (async version)."""
         try:
             self.is_running = True
 
@@ -407,13 +407,23 @@ class LightningMonitor:
             logger.info(f"Daily summary schedule: {daily_summary_cron}")
 
             # Keep running
-            asyncio.get_event_loop().run_forever()
+            try:
+                while self.is_running:
+                    await asyncio.sleep(1)
+            except KeyboardInterrupt:
+                logger.info("Received shutdown signal")
+                self.stop()
 
-        except KeyboardInterrupt:
-            logger.info("Received shutdown signal")
-            self.stop()
         except Exception as e:
             logger.error(f"Error starting monitoring system: {e}", exc_info=True)
+            self.stop()
+
+    def start(self):
+        """Start the monitoring system (wrapper for async)."""
+        try:
+            asyncio.run(self.start_async())
+        except KeyboardInterrupt:
+            logger.info("Received shutdown signal")
             self.stop()
 
     async def _cleanup_database(self):

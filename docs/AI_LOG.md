@@ -281,3 +281,6 @@ sudo journalctl -u malta-lightning-monitor -f
 - Logging at appropriate levels
 - Health checks for containerized deployment
 
+- [2025-01-27 12:00] Set up comprehensive pytest test suite (files: pytest.ini, tests/conftest.py, tests/test_config.py, tests/test_rules_engine.py, tests/test_data_fusion.py, tests/README.md)
+- [2025-01-27 12:30] All 33 tests passing - Coverage: ConfigLoader (93%), DataFusionEngine (82%), AlertRulesEngine (69%)
+
