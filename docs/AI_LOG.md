@@ -284,4 +284,5 @@ sudo journalctl -u malta-lightning-monitor -f
 - [2025-01-27 12:00] Set up comprehensive pytest test suite (files: pytest.ini, tests/conftest.py, tests/test_config.py, tests/test_rules_engine.py, tests/test_data_fusion.py, tests/README.md)
 - [2025-01-27 12:30] All 33 tests passing - Coverage: ConfigLoader (93%), DataFusionEngine (82%), AlertRulesEngine (69%)
 - [2025-01-27 13:00] Created deployment documentation and configuration files (files: DEPLOYMENT.md, QUICK_START.md, .env.example, config/config.yaml)
+- [2025-10-30 23:41] Fixed AttributeError in LightningMonitor: initialized self.active_storm_interval, self.current_interval, and self.adaptive_monitoring in __init__ to prevent errors when fetch_and_process runs before start_async completes (files: main.py)
 

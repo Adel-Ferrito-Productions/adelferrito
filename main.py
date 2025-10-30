@@ -77,8 +77,11 @@ class LightningMonitor:
         # Previous storm cells for tracking
         self.previous_cells = None
         
-        # Adaptive monitoring state
-        self.current_interval = None
+        # Adaptive monitoring state - initialize from config to prevent AttributeError
+        scheduler_config = self.config.get('scheduler', {})
+        self.current_interval = scheduler_config.get('main_loop_interval', scheduler_config.get('monitoring_interval', 60))
+        self.active_storm_interval = scheduler_config.get('active_storm_interval', 30)
+        self.adaptive_monitoring = scheduler_config.get('adaptive_monitoring', True)
         self.is_active_storm = False
 
         logger.info("Lightning monitor initialized successfully")
